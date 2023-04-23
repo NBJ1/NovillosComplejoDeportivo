@@ -17,6 +17,11 @@ signinform.addEventListener('submit', async e =>{
         
 
     } catch (error) {
+        swal.fire({
+            icon:'error',
+            title:'Error en el Correo o Contraseña',
+            text:'Ingrese denuevo sus datos',
+        })
         
     }
 })
