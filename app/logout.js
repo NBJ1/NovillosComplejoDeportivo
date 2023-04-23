@@ -6,6 +6,6 @@ const logout = document.querySelector('#logout')
 
 logout.addEventListener('click', async() => {
     await signOut(auth)
-    console.log('el usuario salio')
+    
 
 }) 

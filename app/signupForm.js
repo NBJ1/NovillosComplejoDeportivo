@@ -7,7 +7,7 @@ singupForm.addEventListener('submit', async(e) =>
     e.preventDefault()
     const email = singupForm['signup-email'].value
     const passaword = singupForm['signup-password'].value
-    console.log(email,passaword)
+ 
     try {
         const credencialesUsuario = await createUserWithEmailAndPassword(auth,email,passaword)
     } catch (error) {

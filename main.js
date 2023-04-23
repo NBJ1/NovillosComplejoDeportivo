@@ -8,7 +8,7 @@ import './app/logout.js'
 
 
 onAuthStateChanged(auth, async(user) =>{
-    console.log(user)
+   
     
     loginCheck(user)
     /*
