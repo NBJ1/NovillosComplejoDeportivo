@@ -50,6 +50,49 @@ body {
   margin: 40px;
   
 }
+
+.contenedor-horas1{
+	margin: 40px;
+	width: 300px;
+	align-content: unsafe;
+	
+  }
+
+.horas{
+	
+	position: relative;
+	left: 20px; 
+  margin-top: 60px;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: white;
+  border: solid 1px black;
+  height: 283px;
+
+}
+
+.col-horas{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-bottom: 100px;
+}
+
+.div-hora{
+	width: 100px;
+	border: solid 1px black;
+	margin-top: 10px;
+	margin-right: 10px;
+	cursor: pointer;
+	
+}
+
+.div-hora:hover{
+	background-color: green;
+    color: white;
+    cursor: pointer;
+}
+
 /*  boton de Elegir Hora de reserva*/
 .select-btn{
 
@@ -199,6 +242,14 @@ body {
 	font-size: 15px;
 	text-transform: uppercase;
 	font-weight: 500;
+}
+
+.reserva{
+	width: 320px;
+	height: 50px;
+	font-size: 25px;
+	font-weight: bold;
+	margin-left: 40px;
 }
 
 
