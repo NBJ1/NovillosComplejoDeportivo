@@ -1,15 +1,21 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <br>
+  <dropDownPerfil />
+  <modalRegistro />
+  <editarPerfil />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import dropDownPerfil from './components/perfil/dropDownPerfil.vue';
+import modalRegistro from './components/login/modalRegistro.vue';
+import editarPerfil from './components/perfil/editarPerfil';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    dropDownPerfil,
+    modalRegistro,
+    editarPerfil
   }
 }
 </script>
