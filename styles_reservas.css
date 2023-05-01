@@ -28,7 +28,7 @@ body {
 	color: white;
 }
 .btn-volverhome:hover{
-	
+
 	background-color: green;
 	color: white;
 }
@@ -38,124 +38,176 @@ body {
 /* Fin Foto Menu Reservas */
 
 
-/* Inicio Calendario Reservas */
+/* Calendario Reservas */
 
-.caja1{
-    margin: 20px;
-    margin-top: 100px;
+/* Inicio Campo de Eleccion de Deportes */
+
+
+
+
+
+.contenedor-horas{
+  margin: 40px;
+  
+}
+
+.contenedor-horas1{
+	margin: 40px;
+	width: 300px;
+	align-content: unsafe;
+	
+  }
+
+.horas{
+	
+	position: relative;
+	left: 20px; 
+  margin-top: 60px;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: white;
+  border: solid 1px black;
+  height: 283px;
+
+}
+
+.col-horas{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-bottom: 100px;
+}
+
+.div-hora{
+	width: 100px;
+	border: solid 1px black;
+	margin-top: 10px;
+	margin-right: 10px;
+	cursor: pointer;
+	
+}
+
+.div-hora:hover{
+	background-color: green;
+    color: white;
+    cursor: pointer;
+}
+
+/*  boton de Elegir Hora de reserva*/
+.select-btn{
+
+  display: contents;
+  height: 50px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+.select-btn .btn-text{
+  font-size: 17px;
+  font-weight: 400;
+  color: #333;
 }
 
 
-  .container-calendario {
-    color: #eee;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.list-items{
+  position: relative;	
+  margin-top: 15px;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: white;
+  border: solid 1px black;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.list-items:hover{
+	-webkit-box-shadow: 10px 10px 24px -8px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 24px -8px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 24px -8px rgba(0,0,0,0.75);
+}
+
+.select-btn.open ~ .list-items{
+  display: block;
+}
+.list-items .item{
+  display: flex;
+  align-items: center;
+  list-style: none;
+  height: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+  padding: 0 15px;
+  border-radius: 8px;
+
+}
+
+.tex-seleccion-deporte{
+	font-size: 30px;
+}
+
+.list-items .item:hover {
+  background-color:#198754;
+  color:white;
   
-  .calendar {
-    width: 25rem;
-    height: 32rem;
-    background-color: #222227;
-    box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
-  }
-  
-  .month {
-    width: 100%;
-    height: 6rem;
-    background-color: #167e56;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem;
-    text-align: center;
-    text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
-  }
-  
-  .month i {
-    font-size: 2.5rem;
-    cursor: pointer;
-    color: white;
-  }
-  
-  .month h1 {
-    font-size: 1rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.2rem;
-    margin-bottom: 1rem;
-  }
-  
-  .month p {
-    font-size: 1rem;
-  }
-  
-  .weekdays {
-    width: 100%;
-    height: 2rem;
-    padding: 0 0.1rem;
-    display: flex;
-    align-items: center;
-  }
-  
-  .weekdays div {
-    font-size: 10px;
-    font-weight: 400;
-    letter-spacing: 0.1rem;
-    width: calc(24rem / 7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
-  }
-  
-  .days {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 5px;
-  }
-  
-  .days div {
-    font-size: 12px;
-    margin: 0.25rem;
-    width: calc(20rem / 7);
-    height: 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
-    transition: background-color 0.2s;
-    border-radius: 40px;
-  }
-  
-  .days div:hover:not(.today) {
-    background-color: #262626;
-    border: 0.2rem solid #777;
-    cursor: pointer;
-  }
-  
-  .prev-date,
-  .next-date {
-   opacity: 0.5;
-  }
-  
-  .today {
-    background-color: #167e56;
-  }
-  
+}
+
+.item .item-text{
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+}
+
+.item .item-text:hover{
+  font-size: 16px;
+  font-weight: 400;
+  color: white;
+}
+.item .checkbox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 16px;
+  width: 16px;
+  border-radius: 4px;
+  margin-right: 12px;
+  border: 1.5px solid black;
+  transition: all 0.3s ease-in-out;
+}
+.item.checked .checkbox{
+  background-color:black;
+
+}
+.checkbox .check-icon{
+  color: #fff;
+  font-size: 11px;
+  transform: scale(0);
+  transition: all 0.2s ease-in-out;
+}
+.item.checked .check-icon{
+  transform: scale(1);
+}
+
+/* Fin Campo de Eleccion de Deportes */
+
+
+
+/* Fin Campo Horas */
+
+
+
 
 
 /* Fin Calendario Reservas */
 
 /* Barra Navegacion */
 
-
-
 .navbar{
-	 border-bottom: 2px solid rgb(206, 206, 206); 	
+	 border-bottom: 2px solid rgb(206, 206, 206);
 
-	
+
 }
 
 .nav-link{
@@ -166,8 +218,8 @@ body {
 	border-bottom:solid #4BB636;
 	color:#4BB636 !important;
 	border-radius: 4px;
-	
-	
+
+
 }
 .nav-link::after{
 	content: '';
@@ -190,6 +242,14 @@ body {
 	font-size: 15px;
 	text-transform: uppercase;
 	font-weight: 500;
+}
+
+.reserva{
+	width: 320px;
+	height: 50px;
+	font-size: 25px;
+	font-weight: bold;
+	margin-left: 40px;
 }
 
 
@@ -233,19 +293,6 @@ body {
 
 
 /*  Inicio Complejo */
-.imagenmujer{
-
-	max-height: 300px;
-	margin-bottom: 130px;
-
-
-
-}
-.imagenmujer img{
-	height: 70vh;
-	min-height: 200px;
-}
-
 
 /* Fin Complejo */
 
@@ -253,79 +300,6 @@ body {
 
 
 /* Canchas De Reserva */
-
-
-
-              
-
-.seccion-titulo{
-	font-size: 2rem;
-	padding:15px 0;
-	margin-top: 40px;
-	margin-bottom: 40px;
-}
-
-.seccion-descripcion{
-	font-size: 1.2rem;
-	color: #584e43;	
-}
-.texto-negro{
-	color: black;
-}
-.texto-blanco{
-	color: white;
-}
-.resesrva-canchas{
-	padding: 40px;
-}
-.seccion-clara{
-	color: black;
-	background-color: white;
-}
-
-
-.reserva-canchas img{
-	height: 100%;
-	width: 100%;
-	padding: 10px;
-	border-radius: 10px;
-	display: block;
-	transition: all 0.2s ease;
-}
-
-.contenedor-canchas{
-	padding: 60px;
-	margin-bottom: 40px;
-}
-
-
-.overlay{
-	transition: all 0.2s ease;
-	opacity: 0;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	text-align: center;
-}
-.overlay p{
-	font-size: 25px;
-	font-weight: bold;
-	margin-bottom: 0;
-	color: white;
-}
-.reservas{
-	position: relative;
-}
-
-.reservas:hover img{
-	
-	filter: blur(2px);
-}
-
-.reservas:hover .overlay{
-	opacity: 1;
-}
 
 
 
@@ -337,65 +311,6 @@ body {
 
 
 /* Membresia  */
-
-.membresiaa{
-
-	background-image: url(Recursos/Imagenes/tenis-fondo4.jpg);
-	background-size: cover;
-	z-index: 2;
-	height: 100vh;
-	min-height: 200px;
-
-}
-
-
-
-.section-header{
-
-	color: white;
-	font-size: 24px;
-
-}
-
-.card-body{
-
-	background-color: black ;
-	color: white !important;
-
-}
-.btn-success1{
-	border-color:#4BB636;
-	color: #4BB636;
-	margin-bottom: 4px;
-}
-
-.btn-success1:hover{
-	background-color:#2a8b17;
-	color: white;
-}
-.btn-success2{
-	border-color:#4BB636;
-	color: #4BB636;
-	color: #4BB636;
-	margin-bottom: 4px;
-}
-
-.btn-success2:hover{
-	background-color:#2a8b17;
-	color: white;
-}
-
-.btn-success3{
-	border-color:#4BB636;
-	color: #4BB636;
-	color: #4BB636;
-	margin-bottom: 4px;
-}
-
-.btn-success3:hover{
-	background-color:#2a8b17;
-	color: white;
-}
 
 /* Fin Membresia */
 
@@ -455,7 +370,7 @@ body {
 	.navbar-nav {
 		text-align: center;
 	}
-	
+
 	.carousel-caption {
 		bottom: 125px;
 	}
