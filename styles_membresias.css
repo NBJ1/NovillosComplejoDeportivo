@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+* {
+	font-family: 'Montserrat', sans-serif;
+}
+body {
+	background:white;
+}
+
+.imagen_menureserva{
+    height: 90vh;
+	min-height: 200px;
+    z-index: 2;	
+}
+.btn-volverhome{
+	border-color:white;
+	color: white;
+}
+.btn-volverhome:hover{
+
+	background-color: green;
+	color: white;
+}
+
+
+.navbar{
+	border-bottom: 2px solid rgb(206, 206, 206);
+
+
+}
+
+.nav-link{
+   transition: all 0.1s;
+}
+
+.nav-link:hover{
+   border-bottom:solid #4BB636;
+   color:#4BB636 !important;
+   border-radius: 4px;
+
+
+}
+.nav-link::after{
+   content: '';
+   position: absolute;
+   bottom: 0;
+   left: 0;
+}
+
+.navbar .getstarted {
+   background: #106eea;
+   margin-left: 30px;
+   border-radius: 4px;
+   font-weight: 400;
+   color: #fff;
+   text-decoration: none;
+   padding: .5rem 1rem;
+   line-height: 2.3;
+}
+.navbar-nav a {
+   font-size: 15px;
+   text-transform: uppercase;
+   font-weight: 500;
+}
+
+
+.navbar-light .navbar-brand {
+   color: black;
+   font-size: 25px;
+   text-transform: uppercase;
+   font-weight: bold;
+   letter-spacing: 2px;
+}
+.navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
+   color: #000;
+}
+.navbar-light .navbar-nav .nav-link {
+   color: #000;
+}
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+   color: #000;
+}
+.w-100 {
+   height: 100vh;
+}
+.navbar-toggler {
+   padding: 1px 5px;
+   font-size: 18px;
+   line-height: 0.3;
+   background: #fff;
+}
+
+
+.btn-outline-success:hover{
+   -webkit-box-shadow: -5px 3px 13px -8px rgba(0,0,0,0.75);
+   -moz-box-shadow: -5px 3px 13px -8px rgba(0,0,0,0.75);
+   box-shadow: -5px 3px 13px -8px rgba(0,0,0,0.75);
+}
+
+.btn-volver{
+	text-decoration: none;
+	color: black;
+}
+
+.btn-volver:hover{
+	text-decoration: none;
+	color: white;
+}
+btn-outline-success:hover{
+	color: white !important;
+}
+
+
+
+/* Inicio imagenes menu */
+
+.menumembresia{
+	display: flex;
+	width: 100%;
+	height: 600px;
+}
+.menumembresia img{
+	width: 0px;
+	flex-grow: 1;
+	object-fit: cover;
+	opacity: .9;
+	transition: 0.5s ease;
+}
+
+.menumembresia img:hover{
+	width: 300px;
+	opacity: 1;
+	filter: contrast(120%);
+}
+
+
+/* Fin Imagen menu */
+
+
+
+/* Inicio membresias */
+
+.fondo-cartas{
+	background-color: white;
+
+
+}	
+
+.titulo-planes{
+	color: black;
+}
+.carta-membresia{
+	background-color: rgb(243, 239, 239) !important;
+	border: solid 1px;
+	border-color: #1d670f;
+
+}
+.carta-membresia:hover{
+	border: solid 2px;
+	border-color:  #1d670f;
+	transition: 0.1s;
+	-webkit-box-shadow: 1px 6px 19px 4px rgba(0,0,0,0.75);
+-moz-box-shadow: 1px 6px 19px 4px rgba(0,0,0,0.75);
+box-shadow: 1px 6px 19px 4px rgba(0,0,0,0.75);
+}
+
+.rounded-lg{
+	border-radius: 1rem;
+}
+.custom-separator{
+	width: 10rem;
+	height: 6px;
+	border-radius: 1rem;
+	background-color: #1d670f;
+}
+
+.checks{
+    font-size: 30px;
+	color:#4BB636;
+}
+
+.equis{
+	font-size: 30px;
+}
+
+.boton-pagar-membresia{
+
+	background-color: #1d670f;
+	color: white;
+	border: solid 1px;
+}
+.boton-pagar-membresia:hover{
+
+	background-color: #1d670f;
+	color: white;
+	font-size: 18px;
+	transition: 0.1s;
+	-webkit-box-shadow: 10px 10px 14px -7px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 14px -7px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 14px -7px rgba(0,0,0,0.75);
+}
+
+/* Fin membresias */
