@@ -1,23 +1,32 @@
 <template>
-  <br>
-  <dropDownPerfil />
-  <modalRegistro />
-  <editarPerfil />
+  <div id="app">
+
+    <navPrincipal/>
+
+    <nav>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+      <router-link to="/ola"> | ola</router-link>
+    </nav>
+
+    
+    <router-view/>
+  </div>
 </template>
 
 <script>
-import dropDownPerfil from './components/perfil/dropDownPerfil.vue';
-import modalRegistro from './components/login/modalRegistro.vue';
-import editarPerfil from './components/perfil/editarPerfil';
+import navPrincipal from './components/Principal/navPrincipal.vue';
 
-export default {
-  name: 'App',
-  components: {
-    dropDownPerfil,
-    modalRegistro,
-    editarPerfil
-  }
+
+export default{
+
+components:{
+  navPrincipal,
 }
+
+}
+
+
 </script>
 
 <style>
