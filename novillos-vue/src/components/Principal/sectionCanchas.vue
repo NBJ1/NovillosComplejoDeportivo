@@ -12,11 +12,11 @@
 				<!-- Inicio de Cancha  1 Futbol -->
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="reservas">
-						<img src="Recursos/Imagenes/cancha-futbol.jpg" alt="">
+						<img src="https://i.ibb.co/yf0VS1g/cancha-futbol.jpg" alt="">
 						<div class="overlay">
 							<p class="">Futbol</p>
 							<div class="btn-reserva-cancha">
-								<p><a class="btn btn-successcanchas" href="pag_reservas.html">Reservar Cancha</a></p>
+								<router-link to="/PagReservas"><a class="btn btn-successcanchas">Reservar Cancha</a></router-link>
 							</div>
 						</div>
 					</div>
@@ -24,7 +24,7 @@
 				<!-- Inicio de Cancha  2 Tenis -->
 				<div class="col-12 col-md-6 col-lg-4">
 						<div class="reservas">
-							<img src="Recursos/Imagenes/cancha-tenis.png" alt="">
+							<img src="https://i.ibb.co/fMWGyHj/cancha-tenis.png" alt="">
 							<div class="overlay">
 								<p class="">Tenis</p>
 								<div class="btn-reserva-cancha">
@@ -36,7 +36,7 @@
 				<!-- Inicio de Cancha  3 Basquetball -->
 				<div class="col-12 col-md-6 col-lg-4">
 						<div class="reservas">
-							<img src="Recursos/Imagenes/cancha-basket.jpg" alt="">
+							<img src="https://i.ibb.co/FHd99V8/cancha-basket.jpg" alt="">
 							<div class="overlay">
 								<p class="">Basquetball</p>
 								<div class="btn-reserva-cancha">
@@ -48,7 +48,7 @@
 				<!-- Inicio de Cancha  4 Padel -->
 				<div class="col-12 col-md-6 col-lg-4">
 						<div class="reservas">
-							<img src="Recursos/Imagenes/cancha-padel.jpg" alt="">
+							<img src="https://i.ibb.co/9v5pQMH/26.jpg" alt="">
 							<div class="overlay">
 								<p class="">Padel</p>
 								<div class="btn-reserva-cancha">
@@ -60,7 +60,7 @@
 				<!-- Inicio de Cancha  5 Piscina -->
 				<div class="col-12 col-md-6 col-lg-4">
 						<div class="reservas">
-							<img src="Recursos/Imagenes/piscina.jpg" alt="">
+							<img src="https://i.ibb.co/Y3RSGbz/piscina.jpg" alt="">
 							<div class="overlay">
 								<p class="">Piscina</p>
 								<div class="btn-reserva-cancha">
@@ -72,7 +72,7 @@
 				<!-- Inicio de Cancha  6 Voleibol-->
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="reservas">
-						<img src="Recursos/Imagenes/cancha-voleibol.jpg" alt="">
+						<img src="https://i.ibb.co/1fbdvMs/cancha-voleibol.jpg" alt="">
 						<div class="overlay">
 							<p class="">Voleibol</p>
 							<div class="btn-reserva-cancha">

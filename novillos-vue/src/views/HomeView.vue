@@ -1,10 +1,11 @@
 <template>
   <div>
-    
+ 
+ <navPrincipal/>  
  <carruselImagenes/>
- <sectionComplejo/>
  <sectionMembresia/>
  <sectionCanchas/>
+ <sectionComplejo/>
  <sectionNosotros/>
  <sectionContactanos/>
  <ventanaEmergenteIniciar/>
@@ -16,7 +17,7 @@
 
 <script>
 // @ is an alias to /src
-
+import navPrincipal from '@/components/Principal/navPrincipal.vue';
 import carruselImagenes from '@/components/Principal/carruselImagenes.vue';
 import sectionComplejo from '@/components/Principal/sectionComplejo.vue';
 import sectionMembresia from '@/components/Principal/sectionMembresia.vue';
@@ -33,11 +34,11 @@ export default {
   name: 'HomeView',
   components: {
    
-  
+    navPrincipal,
     carruselImagenes,
-    sectionComplejo,
     sectionMembresia,
     sectionCanchas,
+    sectionComplejo,
     sectionNosotros,
     sectionContactanos,
     ventanaEmergenteIniciar,

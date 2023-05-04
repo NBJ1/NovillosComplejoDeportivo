@@ -40,6 +40,15 @@
 
 <style scoped>
 
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+	* {
+	font-family: 'Montserrat', sans-serif;
+}
+	.section-padding {
+	padding: 100px 0;
+}
+
 .navbar{
 	border-bottom: 2px solid rgb(206, 206, 206);
 

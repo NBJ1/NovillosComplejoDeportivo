@@ -4,10 +4,7 @@
             <div class="imagenmenuoscura">
                 <div class="carousel-inner">
                     <div class="carousel-item active imagen_menureserva">
-                        <!-- <img src="RecursosReserva/Imagenes/cancha-tenis.png" class="d-block w-100 " alt="..."> -->
-                        <v-flex xs0 xl6 lg6 md6 sm6>
-                        <v-img src="@/assets/cancha-padel.jpg">adsfas</v-img>
-                        </v-flex>
+                        <img src="https://i.ibb.co/mRWcMPt/cancha-padel.jpg" class="d-block w-100 " alt="..."> 
                       
                         <div class="carousel-caption d-none d-md-block texto_menureservas">
                             <h1 class="text-center">RESERVAS</h1>
@@ -30,8 +27,21 @@
 </script>
 
 <style scoped>
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+* {
+	font-family: 'Montserrat', sans-serif;
+}
+
+
+.texto_menureservas{
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 100px;
+}
     .imagen_menureserva{
-        height: 70vh;
+        height: 90vh;
         min-height: 200px;
         z-index: 2;
 

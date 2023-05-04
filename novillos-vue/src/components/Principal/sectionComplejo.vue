@@ -4,7 +4,7 @@
 
 <!-- Complejo -->
 
-<section class="about section-padding" id="complejo">
+<section class="about section-padding seccion-nosotros" id="complejo">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-md-12 col-12 ps-lg-5 mt-md-5">
@@ -15,9 +15,7 @@
 						</p>
 					</div>		
 				</div>
-				<div class="col-lg-4 col-md-12 col-12 imagenmujer">
-						<img src="Recursos/Imagenes/mujertenis.png" alt="">
-				</div>
+			
 			</div>
 		</div>
 	</section>
@@ -35,19 +33,27 @@
 
 
 /*  Inicio Complejo */
-.imagenmujer{
-
-	max-height: 300px;
-	margin-bottom: 130px;
 
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+* {
+	font-family: 'Montserrat', sans-serif;
+}
+
+
+
+.about-text{
+	color: white;
 
 }
-.imagenmujer img{
-	height: 70vh;
+.seccion-nosotros{
+	background-image: url("https://i.ibb.co/mFQNMvB/pexels-cottonbro-studio-5741299.jpg");
+	background-size: cover;
+	z-index: 2;
+	height: 80vh;
 	min-height: 200px;
+	
 }
-
 
 /* Fin Complejo */
 

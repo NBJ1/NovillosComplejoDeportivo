@@ -7,7 +7,7 @@
 		</div>
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img alt="..." class="d-block w-100" src="Recursos/Imagenes/cancha-futbol.jpg">
+				<img alt="..." class="d-block w-100" src="https://i.ibb.co/yf0VS1g/cancha-futbol.jpg">
 				<div class="carousel-caption">
 					<h5>Las mejores Canchas de Futbol</h5>
 					<p>Ven a vivir la experiencia en las mejores canchas de la región</p>
@@ -16,7 +16,7 @@
 				</div>
 			</div>
 			<div class="carousel-item">
-				<img alt="..." class="d-block w-100" src="Recursos/Imagenes/cancha-tenis.png">
+				<img alt="..." class="d-block w-100" src="https://i.ibb.co/fMWGyHj/cancha-tenis.png">
 				<div class="carousel-caption">
 					<h5>Mejor Calidad de Canchas</h5>
 					<p>Ven a vivir la experiencia en las mejores canchas de la región</p>
@@ -25,7 +25,7 @@
 				</div>
 			</div>
 			<div class="carousel-item">
-				<img alt="..." class="d-block w-100" src="Recursos/Imagenes/cancha-padel.jpg">
+				<img alt="..." class="d-block w-100" src="https://i.ibb.co/mRWcMPt/cancha-padel.jpg">
 				<div class="carousel-caption">
 					<h5>Mejores Implementaciones</h5>
 					<p>Ven a vivir la experiencia en las mejores canchas de la región</p>
@@ -50,6 +50,15 @@
 
 
 /* Carrusel */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+	* {
+	font-family: 'Montserrat', sans-serif;
+}
+	.section-padding {
+	padding: 100px 0;
+}
+
 
 .carousel-item {
 		height: 90vh;

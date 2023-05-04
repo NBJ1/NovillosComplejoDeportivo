@@ -7,7 +7,7 @@
             <div class="imagenmenuoscura">
                 <div class="carousel-inner">
                     <div class="carousel-item active imagen_menureserva">
-                        <img src="Recursos/Imagenes/cancha-futbol.jpg" class="d-block w-100 " alt="...">
+                        <img src="https://i.ibb.co/yf0VS1g/cancha-futbol.jpg" class="d-block w-100 " alt="...">
                         <div class="carousel-caption d-none d-md-block texto_menureservas">
                             <h1 class="text-center">MEMBRESIAS</h1>
                             <p class="text-center">Elige el plan que se adecue a ti.</p>
@@ -33,17 +33,25 @@
 
 /* Inicio imagenes menu */
 
-.menumembresia{
-	display: flex;
-	width: 100%;
-	height: 600px;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+	* {
+	font-family: 'Montserrat', sans-serif;
 }
-.menumembresia img{
-	width: 0px;
-	flex-grow: 1;
-	object-fit: cover;
-	opacity: .9;
-	transition: 0.5s ease;
+
+.imagen_menureserva{
+    height: 90vh;
+	min-height: 200px;
+    z-index: 2;
+}
+
+.btn-volverhome{
+	border-color:white;
+	color: white;
+}
+.btn-volverhome:hover{
+
+	background-color: green;
+	color: white;
 }
 
 .menumembresia img:hover{

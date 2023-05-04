@@ -1,7 +1,6 @@
 <template>
     <div>
-        <h1>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa </h1>
-        
+     
         <vs-input
         type="date"
         v-model="value7"

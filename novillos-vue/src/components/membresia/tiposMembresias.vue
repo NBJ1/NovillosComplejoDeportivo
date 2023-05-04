@@ -3,15 +3,15 @@
 <!-- Inicio tipos de membresia -->
 <div class="fondo-cartas " id="planes">
 
-<!-- <br></br> -->
-<!-- <br></br> -->
+    <br>
+    <br>
 <h1 class="text-center fw-bold titulo-planes">ELIGE LA MEMBRESIA QUE DESEES</h1>
     <div class="container py-5 ">
         <div class="row text-center tarjetas">
                 <!--  Carta 1 Bronce -->
                 <div class="col-lg-4 mb-2 mb-lg-0 tarjeta">
                     <div class="bg-white pb-3 rounded-lg  carta-membresia ">
-
+                        <br>
                         <h1 class="h4 text-uppercase fw-bold mb-4 titulo-plan  "> Bronce</h1>
                         <h1 class="h1 fw-bold">Gratis  <span class="text-small fw-normal ml-2"></span></h1>
 
@@ -52,7 +52,7 @@
                 <!--  Carta 2 Oro -->
                 <div class="col-lg-4 mb-2 mb-lg-0">
                     <div class="bg-white pb-3 rounded-lg  carta-membresia ">
-
+                        <br>
                         <h1 class="h4 text-uppercase fw-bold mb-4 titulo-plan  "> Oro</h1>
                         <h1 class="h1 fw-bold">$ 50 mil <span class="text-small fw-normal ml-2">/ mes</span></h1>
 
@@ -90,7 +90,7 @@
                 <!-- Carta 3 Premium -->
                 <div class="col-lg-4 mb-5 mb-lg-0">
                     <div class="bg-white pb-3 rounded-lg  carta-membresia ">
-
+                        <br>
                         <h1 class="h4 text-uppercase fw-bold mb-4 titulo-plan">    Platino</h1>
                         <h1 class="h1 fw-bold">$ 100 mil  <span class="text-small fw-normal ml-2">/ mes</span></h1>
 
@@ -144,6 +144,13 @@
 
 
 /* Inicio membresias */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+	* {
+	font-family: 'Montserrat', sans-serif;
+}
+	.section-padding {
+	padding: 100px 0;
+}
 
 .fondo-cartas{
 	background-color: white;
