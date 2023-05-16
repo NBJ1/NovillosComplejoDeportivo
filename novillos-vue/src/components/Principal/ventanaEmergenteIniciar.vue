@@ -40,6 +40,7 @@
                 class="form-control mb-3"
                 placeholder="Conraseña"
                 required
+                v-model="contraseña"
               />
               
 
@@ -56,6 +57,7 @@
 </template>
 
 <script>
+import { signInWithEmailAndPassword } from "firebase/auth"
 export default {
 
   data(){
@@ -67,9 +69,32 @@ export default {
   methods:{
     
 
-	iniciarsesion(){
-    console.log(this.email)
-		this.$store.state.mostrar = false
+	async iniciarsesion(){
+    //console.log(this.email)
+		
+    try {
+        
+        const credencial = await signInWithEmailAndPassword (this.$store.state.auth, this.email, this.contraseña)
+        
+
+        /*-------------ocultar modal--------*/
+        const modal = bootstrap.Modal.getInstance(document.querySelector('#Login_Modal'))
+        modal.hide()
+        /*-------------ocultar modal--------*/
+        //---------------notificar------------
+        swal.fire({
+            icon:'success',
+            title:'Bienvenido ',
+            text:'Has Iniciado Sesion Correctamente',
+        })
+        //---------------notificar-------------
+        this.$store.state.mostrar = false
+        
+      
+    } catch (error) {
+        console.log(error)
+    }
+
 	}
 }
 

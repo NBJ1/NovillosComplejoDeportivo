@@ -60,17 +60,24 @@ methods:{
 	
 	async cerrarSesion(){
 		
-		const auth = this.$store.state.auth;
-		this.$store.state.mostrar = true
 		
-		onAuthStateChanged(auth, async(user) =>{
-        	await  signOut(auth)
+		//onAuthStateChanged(this.$store.state.auth, async(user) =>{
+		const user = this.$store.state.auth.currentUser;	
 			console.log(user)
-        })
+			if(user){
+				await  signOut(this.$store.state.auth)
+				swal.fire({
+            	icon:'success',
+            	title:'Sesion Finalizada',
+            	text:'Has Cerrado Sesion Correctamente',
+        		})
+				this.$store.state.mostrar = true	
+			}
+		//})
+        	
+        
 	},
-	iniciarsesion(){
-		this.mostrar = false
-	}
+	
 }
 
 };	

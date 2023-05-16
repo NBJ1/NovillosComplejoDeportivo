@@ -88,6 +88,7 @@
 <script>
 import { onAuthStateChanged } from "firebase/auth";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore"; 
 export default {
   data(){
     return{
@@ -102,7 +103,6 @@ export default {
     
 	  async validar(){
       
-      const auth = this.$store.state.auth;
       
       /*
       console.log(this.correo)
@@ -113,14 +113,20 @@ export default {
       */
       try {
         
-        const credenciales = await createUserWithEmailAndPassword(auth,this.correo,this.contraseña)
-        this.$store.state.mostrar = false
-        onAuthStateChanged(auth, async(user) =>{
-          console.log(user)
-        })
+        const credenciales = await createUserWithEmailAndPassword(this.$store.state.auth,this.correo,this.contraseña)
         
-        
-        
+        const user = this.$store.state.auth.currentUser;
+          if(user){
+            await setDoc(doc(this.$store.state.db, "usuario",user.uid), { //db.collection("usuario").doc(cred.user.uid).set({
+              nombre: this.nombre,
+              apellido: this.apellido,
+              telefono: this.telefono,
+              membresia: "Bronce"
+            });
+            this.$store.state.mostrar = false
+            //user.displayName = this.nombre +" "+ this.apellido
+          }
+  
         swal.fire({
             icon:'success',
             title:'Felicitaciones',

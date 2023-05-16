@@ -2,8 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import { initializeApp } from 'firebase/app';
 import { getAuth } from "firebase/auth";
-
-//import { getFirestore } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js"
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAcGs9SMSyXRyuRkoBF-qv5f7QSogVW-xk",
@@ -18,6 +17,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
 
 //export const db = getFirestore(app)
 Vue.use(Vuex)
@@ -27,7 +27,8 @@ export default new Vuex.Store({
       mostrar: true,
       app,
       auth,
-    
+      db,
+      
       
   },
   getters: {
