@@ -10,7 +10,7 @@
 </div>
 
 <!-- modal -->
-<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="ssignupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 aria-hidden="true">
 <div class="modal-dialog">
     <div class="modal-content bg-dark">
@@ -82,6 +82,7 @@ aria-hidden="true">
     label{
         color: white;
     }
+    
     #btnListo{
         background-color: ;
     }

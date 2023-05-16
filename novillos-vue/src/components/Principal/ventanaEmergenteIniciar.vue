@@ -28,7 +28,7 @@
                 type="text"
                 id="login-email"
                 class="form-control mb-3"
-                placeholder="Title"
+                placeholder="Correo"
                 required
                 v-model="email"
               />
@@ -38,9 +38,10 @@
                 type="password"
                 id="login-password"
                 class="form-control mb-3"
-                placeholder="Password"
+                placeholder="Conraseña"
                 required
               />
+              
 
               <button type="submit" class="btn btn-success" @click="iniciarsesion">
                 Iniciar Sesion

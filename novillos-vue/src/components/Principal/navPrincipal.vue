@@ -47,7 +47,8 @@
 </template>
 
 <script>
-
+import { signOut } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 export default {
 	data(){
 		return{
@@ -56,8 +57,16 @@ export default {
 	},
 
 methods:{
-	cerrarSesion(){
+	
+	async cerrarSesion(){
+		
+		const auth = this.$store.state.auth;
 		this.$store.state.mostrar = true
+		
+		onAuthStateChanged(auth, async(user) =>{
+        	await  signOut(auth)
+			console.log(user)
+        })
 	},
 	iniciarsesion(){
 		this.mostrar = false

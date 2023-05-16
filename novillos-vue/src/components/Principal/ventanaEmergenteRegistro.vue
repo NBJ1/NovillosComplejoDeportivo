@@ -29,6 +29,7 @@
                 class="form-control mb-3"
                 placeholder="Correo"
                 required
+                v-model="correo"
               />
 
               <label for="password">Contraseña:</label>
@@ -38,9 +39,41 @@
                 class="form-control mb-3"
                 placeholder="Contraseña"
                 required
+                v-model="contraseña"
               />
+              <label for="Nombre">Nombre:</label>
+              <input
+                type="text"
+                id="username"
+                class="form-control mb-3"
+                placeholder="Nombre"
+                required
+                v-model="nombre"
+              />
+              <label for="Apellido">Apellido:</label>
+              <input
+                type="text"
+                id="lastname"
+                class="form-control mb-3"
+                placeholder="Apellido"
+                required
+                v-model="apellido"
+              />
+              <label for="phone">Teléfono:</label>
+              <input
+                type="number"
+                id="phone"
+                class="form-control mb-3"
+                placeholder="Teléfono"
+                required
+                v-model="telefono"
+              />
+              
+              
 
-              <button type="submit" class="btn btn-success">
+              
+
+              <button type="submit" class="btn btn-success" @click="validar">
                 Crear cuenta
               </button>
             </form>
@@ -53,7 +86,86 @@
 </template>
 
 <script>
-export default {};
+import { onAuthStateChanged } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+export default {
+  data(){
+    return{
+      nombre:"",
+      apellido:"",
+      telefono: "",
+      correo:"",
+      contraseña:"",
+    }
+  },
+  methods:{
+    
+	  async validar(){
+      
+      const auth = this.$store.state.auth;
+      
+      /*
+      console.log(this.correo)
+      console.log(this.contraseña)
+      console.log(this.nombre)
+      console.log(this.apellido)
+      console.log(this.telefono)
+      */
+      try {
+        
+        const credenciales = await createUserWithEmailAndPassword(auth,this.correo,this.contraseña)
+        this.$store.state.mostrar = false
+        onAuthStateChanged(auth, async(user) =>{
+          console.log(user)
+        })
+        
+        
+        
+        swal.fire({
+            icon:'success',
+            title:'Felicitaciones',
+            text:'Ya eres un nuevo usuario del Complejo Deportivo Los Novillos',
+        })
+    } catch (error) {
+      
+       if(error.code=== 'auth/email-already-in-use'){
+        swal.fire({
+            icon:'error',
+            title:'Este Correo esta en Uso',
+            text:'Ingresa un nuevo correo',
+        })
+       }else if(error.code === 'auth/invalid-email'){
+        swal.fire({
+            icon:'error',
+            title:'Correo Invalido',
+            text:'Ingresa un correo con formato dominio@gmail.com o usuario@gmail.cl',
+        })
+
+       }else if(error.code === 'auth/weak-password'){
+        swal.fire({
+            icon:'error',
+            title:'Contraseña Invalida',
+            text:'Ingresa una contraseña con minimo de 4 caracteres, donde pueden ser letras o numeros',
+        })
+
+       }
+    }
+
+    const singupModal = document.querySelector('#signupModal')
+    const modal =bootstrap.Modal.getInstance(singupModal)
+    modal.hide();
+    
+    
+
+
+
+
+
+
+  }
+}
+};
+
 </script>
 
 <style scoped></style>
