@@ -30,7 +30,9 @@
                 class="form-control mb-3"
                 placeholder="Title"
                 required
+                v-model="email"
               />
+
               <label for="password">Contraseña:</label>
               <input
                 type="password"
@@ -40,7 +42,7 @@
                 required
               />
 
-              <button type="submit" class="btn btn-success">
+              <button type="submit" class="btn btn-success" @click="iniciarsesion">
                 Iniciar Sesion
               </button>
             </form>
@@ -53,7 +55,24 @@
 </template>
 
 <script>
-export default {};
+export default {
+
+  data(){
+      return{
+        email: "",
+        contraseña: ""
+      }
+  },
+  methods:{
+    
+
+	iniciarsesion(){
+    console.log(this.email)
+		this.$store.state.mostrar = false
+	}
+}
+
+};
 </script>
 
 <style scoped></style>

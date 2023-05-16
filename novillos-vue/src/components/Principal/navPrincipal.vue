@@ -28,13 +28,13 @@
 			
 			</div>
 		
-			<div class="logged-out">
-				<p><a class="nav-item btn btn-outline-success5  " href="#" data-bs-toggle="modal" data-bs-target="#Login_Modal">Iniciar Sesion</a></p>
+			<div class="logged-out" v-if="$store.state.mostrar">
+				<p><a class="nav-item btn btn-outline-success5  " href="#" data-bs-toggle="modal" data-bs-target="#Login_Modal" >Iniciar Sesion</a></p>
 			</div>
-			<div class="logged-out">
+			<div class="logged-out" v-if="$store.state.mostrar">
 				<p><a class="nav-item btn btn-outline-success5 " href="#" data-bs-toggle="modal" data-bs-target="#signupModal">Registrarse</a></p>
 			</div>
-			<div class="logged-in">
+			<div class="logged-in" v-if="!$store.state.mostrar" @click="cerrarSesion">
 				<p><a class="nav-item btn btn-outline-success5 " href="#" id="logout" >Cerrar Sesion</a></p>
 			</div>
     </div>
@@ -47,14 +47,24 @@
 </template>
 
 <script>
+
 export default {
+	data(){
+		return{
+			mostrar:true,
+		}
+	},
+
 methods:{
 	cerrarSesion(){
-
+		this.$store.state.mostrar = true
+	},
+	iniciarsesion(){
+		this.mostrar = false
 	}
 }
 
-};
+};	
 
 </script>
 
