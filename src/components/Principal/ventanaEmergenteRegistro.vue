@@ -86,6 +86,7 @@
 </template>
 
 <script>
+import { isThisSecond } from "date-fns";
 import { onAuthStateChanged } from "firebase/auth";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore"; 
@@ -111,63 +112,67 @@ export default {
       console.log(this.apellido)
       console.log(this.telefono)
       */
-      try {
-        
-        const credenciales = await createUserWithEmailAndPassword(this.$store.state.auth,this.correo,this.contraseña)
-        
-        const user = this.$store.state.auth.currentUser;
-          if(user){
-            await setDoc(doc(this.$store.state.db, "usuario",user.uid), { //db.collection("usuario").doc(cred.user.uid).set({
-              nombre: this.nombre,
-              apellido: this.apellido,
-              telefono: this.telefono,
-              membresia: "Bronce"
-            });
-            this.$store.state.mostrar = false
-            //user.displayName = this.nombre +" "+ this.apellido
-          }
-  
-        swal.fire({
-            icon:'success',
-            title:'Felicitaciones',
-            text:'Ya eres un nuevo usuario del Complejo Deportivo Los Novillos',
-        })
-    } catch (error) {
+      let eRegular = /[a-zA-Z0-9]+@(gmail|outlook|Utalca)\.com|cl|org|es/; 
       
-       if(error.code=== 'auth/email-already-in-use'){
-        swal.fire({
-            icon:'error',
-            title:'Este Correo esta en Uso',
-            text:'Ingresa un nuevo correo',
-        })
-       }else if(error.code === 'auth/invalid-email'){
-        swal.fire({
-            icon:'error',
-            title:'Correo Invalido',
-            text:'Ingresa un correo con formato dominio@gmail.com o usuario@gmail.cl',
-        })
+      if(eRegular.test(this.correo)){ 
 
-       }else if(error.code === 'auth/weak-password'){
-        swal.fire({
-            icon:'error',
-            title:'Contraseña Invalida',
-            text:'Ingresa una contraseña con minimo de 4 caracteres, donde pueden ser letras o numeros',
-        })
+        try {
+       
+          const credenciales = await createUserWithEmailAndPassword(this.$store.state.auth,this.correo,this.contraseña)
+          const user = this.$store.state.auth.currentUser;
+            if(user){
+              await setDoc(doc(this.$store.state.db, "usuario",user.uid), { //db.collection("usuario").doc(cred.user.uid).set({
+                nombre: this.nombre,
+                apellido: this.apellido,
+                telefono: this.telefono,
+                membresia: "Bronce"
+              });
 
-       }
-    }
+              await setDoc(doc(this.$store.state.db, "membresia",user.uid), { //db.collection("usuario").doc(cred.user.uid).set({
+                HorasReservas: 2,
+                ReservasDescuento: 0,
+                ReservasGratis: 0,
+                nivel:"Bronce",
+                refUsuario: user.uid,
+              });
+              this.$store.state.mostrar = false
+            //user.displayName = this.nombre +" "+ this.apellido
+            }
+  
+          swal.fire({
+              icon:'success',
+              title:'Felicitaciones',
+              text:'Ya eres un nuevo usuario del Complejo Deportivo Los Novillos',
+          })
+        }
+        catch (error) {
+         if(error.code=== 'auth/email-already-in-use'){
+          swal.fire({
+              icon:'error',
+              title:'Este Correo esta en Uso',
+              text:'Ingresa un nuevo correo',
+          })
+         }else if(error.code === 'auth/weak-password'){
+          swal.fire({
+              icon:'error',
+              title:'Contraseña Invalida',
+              text:'Ingresa una contraseña con minimo de 4 caracteres, donde pueden ser letras o numeros',
+          })
+
+         }
+        }
+    }else{
+      swal.fire({
+          icon:'error',
+          title:'Correo Invalido',
+          text:'Ingresa un correo con formato dominio@gmail.com o usuario@gmail.cl',
+      })
+    } 
 
     const singupModal = document.querySelector('#signupModal')
     const modal =bootstrap.Modal.getInstance(singupModal)
     modal.hide();
     
-    
-
-
-
-
-
-
   }
 }
 };

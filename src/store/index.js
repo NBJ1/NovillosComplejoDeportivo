@@ -28,8 +28,7 @@ export default new Vuex.Store({
       app,
       auth,
       db,
-      
-      
+      suscripcion: 0,   
   },
   getters: {
   },

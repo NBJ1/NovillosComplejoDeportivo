@@ -105,7 +105,7 @@
                       />
                     </div>
                   </div>
-                  <button @click="showRandomModal" class="btn btn-primary">
+                  <button @click="showRandomModal"  class="btn btn-primary">
                     Pagar
                   </button>
                 </form>
@@ -168,6 +168,8 @@
 </template>
 
 <script>
+import { doc, updateDoc } from "firebase/firestore";
+
 export default {
   data() {
     return {
@@ -175,13 +177,68 @@ export default {
     };
   },
   methods: {
-    showRandomModal() {
+    
+   async showRandomModal() {
+      const user = this.$store.state.auth.currentUser;
+      const suscripcionRef = doc(this.$store.state.db, "membresia",user.uid);
       const randomNumber = Math.random();
-      this.activeModal = randomNumber < 0.5 ? "modal1" : "modal2";
-    },
+   //   this.activeModal = randomNumber < 0.95 ? "modal1" : "modal2";
+      if(randomNumber < 0.95){
+        if(this.$store.state.suscripcion === 1){
+          await updateDoc(suscripcionRef, {
+              HorasReservas: 5,
+              ReservasDescuento: 20,
+              ReservasGratis: 1,
+              nivel: "Oro",
+          }); 
+
+          swal.fire({
+            icon:'success',
+            title:'Pago Exitoso',
+            text:'Ya tienes tu membresia tipo Oro',
+          })
+
+        }else if(this.$store.state.suscripcion === 2){
+          await updateDoc(suscripcionRef, {
+              HorasReservas: 7,
+              ReservasDescuento: 50,
+              ReservasGratis: 3,
+              nivel: "Platino",
+           });
+
+           swal.fire({
+            icon:'success',
+            title:'Pago Exitoso',
+            text:'Ya tienes tu membresia tipo Platino',
+          })
+        }else if(this.$store.state.suscripcion === 3){
+          await updateDoc(suscripcionRef, {
+              HorasReservas: 2,
+              ReservasDescuento: 0,
+              ReservasGratis: 0,
+              nivel: "Bronce",
+          });
+
+          swal.fire({
+            icon:'success',
+            title:'Pago Exitoso',
+            text:'Ya tienes tu membresia tipo Bronce',
+          })
+        }
+        this.$store.state.suscripcion = 0 
+      }else{
+        swal.fire({
+          icon:'error',
+          title:'Pago Fallido',
+          text:'Vuelve a ingresar los datos de tu metodo de pago',
+        })
+      }
+    }, 
+
     closeModal() {
       this.activeModal = null;
     },
+    
   },
 };
 </script>
