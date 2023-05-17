@@ -2,7 +2,7 @@
 <div>
       <navReservas/>
       <DivFotosReserva/>
-      <DivreservaHoras/>
+      <divReservaHoras/>
       <FooterReserva/>
 </div>
 </template>
@@ -10,18 +10,17 @@
 <script>
 
 import DivFotosReserva from '@/components/reservas/divFotosReserva.vue';
-import DivreservaHoras from '@/components/reservas/divreservaHoras.vue';
+import divReservaHoras from '@/components/reservas/divReservaHoras.vue';
 import FooterReserva from '@/components/reservas/footerReserva.vue';
 import navReservas from '@/components/reservas/navReservas.vue';
 
-
     export default {
-   
+    name: 'PagReservas',
     components: {
     navReservas,
     DivFotosReserva,
-    DivreservaHoras,
-    FooterReserva
+    FooterReserva,
+    divReservaHoras
 }
 }
 </script>
