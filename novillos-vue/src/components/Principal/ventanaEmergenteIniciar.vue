@@ -93,6 +93,11 @@ export default {
       
     } catch (error) {
         console.log(error)
+        swal.fire({
+            icon:'error',
+            title:'Error Iniciar sesión',
+            text:'Error ingresar Correo o Contraseña',
+        })
     }
 
 	}
@@ -101,4 +106,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.btn-success{
+  color: white;
+}
+
+</style>

@@ -174,4 +174,8 @@ export default {
 
 </script>
 
-<style scoped></style>
+<style scoped>
+.btn-success{
+  color: white;
+}
+</style>

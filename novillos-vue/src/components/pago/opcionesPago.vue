@@ -210,19 +210,19 @@ export default {
 }
 
 #uno {
-  background-color: whitesmoke;
+  background-color: white;
 
   display: grid;
   place-items: center;
 
-  background: #e0e0e0;
+  background: white;
   box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
 
   border: 1px solid #2a8b18;
 }
 
 #dos {
-  background: #e0e0e0;
+  background: white;
   box-shadow: 32px 32px 64px #a6a6a6, -32px -32px 64px #ffffff;
 
   display: grid;

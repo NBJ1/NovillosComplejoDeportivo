@@ -18,8 +18,7 @@ import tiposMembresias from '@/components/membresia/tiposMembresias.vue';
 import pqMembresia from '@/components/membresia/pqMembresia.vue';
 
   export default {
-    name: 'PagMembresia',
-    components:{
+  components:{
     navMembresia,
     FotoMenuMembresia,
     tiposMembresias,

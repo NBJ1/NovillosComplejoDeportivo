@@ -44,7 +44,7 @@
 
                         </ul>
 
-                        <a href="#" class="btn btn-block p-2  rounded-pill boton-pagar-membresia"> Obtener Memebresia </a>
+                    <router-link to="/pago"> <a href="#" class="btn btn-block p-2  rounded-pill boton-pagar-membresia"> Obtener Memebresia </a></router-link>
 
                     </div>
                 </div>
@@ -82,7 +82,7 @@
 
                         </ul>
 
-                        <a href="#" class="btn btn-block p-2  rounded-pill boton-pagar-membresia"> Obtener Memebresia </a>
+                        <router-link to="/pago"> <a href="#" class="btn btn-block p-2  rounded-pill boton-pagar-membresia"> Obtener Memebresia </a></router-link>
 
                     </div>
                 </div>
@@ -119,7 +119,7 @@
 
                         </ul>
 
-                        <a href="#" class="btn btn-block p-2  rounded-pill boton-pagar-membresia"> Obtener Memebresia </a>
+                        <router-link to="/pago"> <a href="#" class="btn btn-block p-2  rounded-pill boton-pagar-membresia"> Obtener Memebresia </a></router-link>
 
                     </div>
                 </div>

@@ -22,11 +22,6 @@ const db = getFirestore(app);
 //export const db = getFirestore(app)
 Vue.use(Vuex)
 
-const Fecha = ''
-const Deporte = ''
-const Horas_Reserva = ''
-const Dia_actual=''
-
 export default new Vuex.Store({
   state: {
       mostrar: true,
@@ -35,12 +30,6 @@ export default new Vuex.Store({
       db,
       
       
-      
-    
-      Fecha,
-      Deporte,
-      Horas_Reserva,
-      Dia_actual,
   },
   getters: {
   },
