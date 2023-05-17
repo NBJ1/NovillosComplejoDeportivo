@@ -10,7 +10,7 @@
 <script>
 
 import DivFotosReserva from '@/components/reservas/divFotosReserva.vue';
-import divReservaHoras from '@/components/reservas/divReservaHoras.vue';
+import divReservaHoras from '@/components/reservas/divreservaHoras.vue';
 import FooterReserva from '@/components/reservas/footerReserva.vue';
 import navReservas from '@/components/reservas/navReservas.vue';
 

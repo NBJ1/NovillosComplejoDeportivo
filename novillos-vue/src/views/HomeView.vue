@@ -1,7 +1,7 @@
 <template>
   <div>
  
- <navPrincipal/>  
+ <navPrincipal/>
  <carruselImagenes/>
  <sectionMembresia/>
  <sectionCanchas/>
@@ -33,7 +33,7 @@ import footerGeneral from '@/components/Principal/footerGeneral.vue';
 export default {
   name: 'HomeView',
   components: {
-   
+
     navPrincipal,
     carruselImagenes,
     sectionMembresia,

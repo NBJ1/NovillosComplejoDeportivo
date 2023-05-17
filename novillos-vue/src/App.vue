@@ -7,7 +7,7 @@
 
 <script>
 import navPrincipal from './components/Principal/navPrincipal.vue';
-
+  
 
 export default{
 
@@ -23,7 +23,7 @@ components:{
 <style>
 #app {
 
-  
+
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
