@@ -50,7 +50,7 @@
             <br>
             <br>
             <div class="">
-              <button class="btn btn-outline-success " type="submit" :disabled="boton_deshabilitado" @click="btn_reserva" id="botonReserva"><router-link class="a" to="/pago">RESERVAR</router-link></button>
+              <button class="btn btn-outline-success " type="submit" :disabled="boton_deshabilitado" @click="btn_reserva" id="botonReserva">RESERVAR</button>
             </div>          
   
   
@@ -177,10 +177,9 @@
      
     }
     */
-  
-      .contenedor_deportes{
-        color: green;
-  }
+
+    
+
 
       /*  boton de Elegir Hora de reserva*/
 
@@ -194,7 +193,7 @@
     
   }
   .a:hover{
-    background-color: green;
+
     color: white;
     
   }

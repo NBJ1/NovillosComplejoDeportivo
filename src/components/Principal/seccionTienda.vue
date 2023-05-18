@@ -18,7 +18,7 @@
 			</div>
 
 			<div class="btn-tienda">
-				<p><a class="nav-item btn btn-outline-success5 " href="#" id="logout" >Ver Tienda</a></p>
+				<p><router-link to="/PagTienda"><a class="nav-item btn btn-outline-success5 " href="#" id="logout" >Ver Tienda</a></router-link></p>
 			</div>
 		</div>
 	</section>

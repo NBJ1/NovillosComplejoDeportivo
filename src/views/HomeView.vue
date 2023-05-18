@@ -6,6 +6,7 @@
  <sectionMembresia/>
  <sectionCanchas/>
  <sectionComplejo/>
+ <seccionTienda/>
  <sectionNosotros/>
  <sectionContactanos/>
  <ventanaEmergenteIniciar/>
