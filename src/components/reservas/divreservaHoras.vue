@@ -50,7 +50,7 @@
             <br>
             <br>
             <div class="">
-              <button class="btn btn-outline-success " type="submit" :disabled="boton_deshabilitado" @click="btn_reserva" id="botonReserva">RESERVAR</button>
+              <button class="btn btn-outline-success " type="submit" :disabled="boton_deshabilitado" @click="btn_reserva" id="botonReserva"><router-link class="a" to="/pago">RESERVAR</router-link></button>
             </div>          
   
   
@@ -73,7 +73,8 @@
   
   
   <script>
-  import { doc, setDoc } from "firebase/firestore";
+  import { min } from 'date-fns';
+  
   
   
       export default {

@@ -27,13 +27,13 @@ import sectionContactanos from '@/components/Principal/sectionContactanos.vue';
 import ventanaEmergenteIniciar from '@/components/Principal/ventanaEmergenteIniciar.vue';
 import ventanaEmergenteRegistro from '@/components/Principal/ventanaEmergenteRegistro.vue';
 import footerGeneral from '@/components/Principal/footerGeneral.vue';
+import SeccionTienda from '@/components/Principal/seccionTienda.vue';
 
 
 
 export default {
   name: 'HomeView',
   components: {
-
     navPrincipal,
     carruselImagenes,
     sectionMembresia,
@@ -44,9 +44,7 @@ export default {
     ventanaEmergenteIniciar,
     ventanaEmergenteRegistro,
     footerGeneral,
-
-
-
-  }
+    SeccionTienda
+}
 }
 </script>

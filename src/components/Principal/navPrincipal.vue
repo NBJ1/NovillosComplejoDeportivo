@@ -4,7 +4,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" >
 		<div class="container">
 			<a class="navbar-brand" href="#"><span class="text-complejo ">
-				<img class="" src="" alt="">
+				<img src="" alt="">
 			</span>Novillos</a> <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button"><span class="navbar-toggler-icon	"></span></button>
 			<div class="" id="navbarSupportedContent">
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -12,13 +12,16 @@
 						<a class="nav-link" href="#">Menu</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#complejo">Complejo</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#membresia">Membresia</a>
+						<a class="nav-link" href="#membresia">Membresias</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#canchas">Canchas</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#complejo">Complejo</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#tienda">Tienda</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#nosotros">Nosotros</a>
@@ -28,12 +31,14 @@
 			
 			</div>
 		
-			<div class="logged-out" v-if="$store.state.mostrar">
+			<div class="logged-out " v-if="$store.state.mostrar">
 				<p><a class="nav-item btn btn-outline-success5  " href="#" data-bs-toggle="modal" data-bs-target="#Login_Modal" >Iniciar Sesion</a></p>
-			</div>
-			<div class="logged-out" v-if="$store.state.mostrar">
+		
+				<div class="logged-out" v-if="$store.state.mostrar">
 				<p><a class="nav-item btn btn-outline-success5 " href="#" data-bs-toggle="modal" data-bs-target="#signupModal">Registrarse</a></p>
 			</div>
+			</div>
+
 			<div class="logged-in" v-if="!$store.state.mostrar" @click="cerrarSesion">
 				<p><a class="nav-item btn btn-outline-success5 " href="#" id="logout" >Cerrar Sesion</a></p>
 			</div>
@@ -95,6 +100,12 @@ methods:{
 	padding: 100px 0;
 }
 
+
+
+	.logged-out{
+		display: flex;
+		margin-left: 20px;
+	}
 
 	.navbar{
 		border-bottom: 2px solid rgb(206, 206, 206); 	

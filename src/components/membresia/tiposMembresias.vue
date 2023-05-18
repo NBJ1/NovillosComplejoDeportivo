@@ -44,7 +44,7 @@
 
                         </ul>
 
-                    <router-link to="/pago"> <a href="#" class="btn btn-block p-2  rounded-pill boton-pagar-membresia" @click = "obtenerBronce" > Obtener Membresia </a></router-link>
+                    <router-link to="/pago"> <a href="#" class="btn btn-block p-2  rounded-pill boton-pagar-membresia"> Obtener Memebresia </a></router-link>
 
                     </div>
                 </div>
@@ -82,7 +82,7 @@
 
                         </ul>
 
-                        <router-link to="/pago"> <a href="#" class="btn btn-block p-2  rounded-pill boton-pagar-membresia" @click = "obtenerOro" > Obtener Membresia </a></router-link>
+                        <router-link to="/pago"> <a href="#" class="btn btn-block p-2  rounded-pill boton-pagar-membresia"> Obtener Memebresia </a></router-link>
 
                     </div>
                 </div>
@@ -119,7 +119,7 @@
 
                         </ul>
 
-                        <router-link to = "/pago"> <a href="#" class="btn btn-block p-2  rounded-pill boton-pagar-membresia" @click = "obtenerPlatino"> Obtener Membresia </a></router-link>
+                        <router-link to="/pago"> <a href="#" class="btn btn-block p-2  rounded-pill boton-pagar-membresia"> Obtener Memebresia </a></router-link>
 
                     </div>
                 </div>
@@ -136,26 +136,7 @@
 
 <script>
     export default {
-        data(){
-            return{
-
-            }
-        },
-
-        methods:{
-
-            obtenerOro(){
-                this.$store.state.suscripcion = 1  
-            },
-
-            obtenerPlatino(){
-                this.$store.state.suscripcion = 2  
-            }, 
-
-            obtenerBronce(){
-                this.$store.state.suscripcion = 3
-            }, 
-        }  
+        
     }
 </script>
 
