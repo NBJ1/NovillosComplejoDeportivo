@@ -25,8 +25,10 @@
 				</ul>
 			</div>
 			<form class="d-flex" role="search">
-				<a class="btn btn-outline-success btn-volver" href="index.html">Volver al Menu </a>
-			</form>
+				<router-link to="/">
+               <a class="btn btn-outline-success btn-volver" href="index.html">Volver al Menu </a>
+			   </router-link>
+         </form>
 		</div>
 	</nav>
     </div>

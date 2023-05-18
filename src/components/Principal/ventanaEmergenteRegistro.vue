@@ -86,9 +86,9 @@
 </template>
 
 <script>
-import { isThisSecond } from "date-fns";
-import { onAuthStateChanged } from "firebase/auth";
+
 import { createUserWithEmailAndPassword } from "firebase/auth";
+
 import { doc, setDoc } from "firebase/firestore"; 
 export default {
   data(){
@@ -117,7 +117,7 @@ export default {
       if(eRegular.test(this.correo)){ 
 
         try {
-       
+          console.log("hola registro")
           const credenciales = await createUserWithEmailAndPassword(this.$store.state.auth,this.correo,this.contraseña)
           const user = this.$store.state.auth.currentUser;
             if(user){

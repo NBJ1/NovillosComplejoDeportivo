@@ -50,7 +50,7 @@
             <br>
             <br>
             <div class="">
-              <button class="btn btn-outline-success " type="submit" :disabled="boton_deshabilitado" @click="btn_reserva" id="botonReserva"><router-link class="a" to="/pago">RESERVAR</router-link></button>
+              <button class="btn btn-outline-success " type="submit" :disabled="boton_deshabilitado" @click="btn_reserva" id="botonReserva">RESERVAR</button>
             </div>          
   
   
@@ -73,8 +73,7 @@
   
   
   <script>
-  import { min } from 'date-fns';
-  
+  import { doc, setDoc } from "firebase/firestore";
   
   
       export default {
@@ -117,11 +116,36 @@
         },
   
         
-        btn_reserva(){
+        async btn_reserva(){
           console.log(this.$store.state.Fecha);
           console.log(this.$store.state.Deporte)
           console.log(this.$store.state.Horas_Reserva)
+          try {
+            const user = this.$store.state.auth.currentUser;
+              if(user){
+                await setDoc(doc(this.$store.state.db, "reservas",user.uid), { 
+                  Fecha: this.$store.state.Fecha,
+                  deporte: this.Deporte,
+                  estado: "Reservado",
+                  hora: this.$store.state.Horas_Reserva
+                });
+              }
+              else{
+                
+                
+                swal.fire({
+                    icon:'error',
+                    title:'Error Inicio Sesion',
+                    text:'Debes iniciar sesion previamente',
+                })
+              }
+          }
+          catch (error) {
+            console.log("error")
+            console.log(error)
+          }
         }
+          
        },
   
        computed:{

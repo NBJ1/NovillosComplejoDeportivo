@@ -69,29 +69,34 @@ export default {
   methods:{
     
 
-	async iniciarsesion(){
+	iniciarsesion(){
     //console.log(this.email)
 		
     try {
-        
-        const credencial = await signInWithEmailAndPassword (this.$store.state.auth, this.email, this.contraseña)
-        
+        console.log(this.$store.state.user)
+        const credencial = signInWithEmailAndPassword (this.$store.state.auth, this.email, this.contraseña)
+        console.log("lo logra")
 
         /*-------------ocultar modal--------*/
+        
         const modal = bootstrap.Modal.getInstance(document.querySelector('#Login_Modal'))
         modal.hide()
+        
         /*-------------ocultar modal--------*/
         //---------------notificar------------
+        
         swal.fire({
             icon:'success',
             title:'Bienvenido ',
             text:'Has Iniciado Sesion Correctamente',
         })
+        
         //---------------notificar-------------
         this.$store.state.mostrar = false
         
       
     } catch (error) {
+        console.log("error")
         console.log(error)
         swal.fire({
             icon:'error',
