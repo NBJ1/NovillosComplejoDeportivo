@@ -44,7 +44,11 @@
 
                         </ul>
 
-                    <router-link to="/pago"> <a href="#" class="btn btn-block p-2  rounded-pill boton-pagar-membresia" @click = "obtenerBronce"> Obtener Memebresia </a></router-link>
+                    <a href="#" 
+                    data-bs-toggle="modal" data-bs-target="#Modal_Pago" 
+                    class="btn btn-block p-2  rounded-pill boton-pagar-membresia" 
+                    @click = "obtenerBronce"> Obtener Memebresia </a>
+                    
 
                     </div>
                 </div>
@@ -82,7 +86,8 @@
 
                         </ul>
 
-                        <router-link to="/pago"> <a href="#" class="btn btn-block p-2  rounded-pill boton-pagar-membresia" @click = "obtenerOro"> Obtener Memebresia </a></router-link>
+                        <a href="#"  
+                        data-bs-toggle="modal" data-bs-target="#Modal_Pago" class="btn btn-block p-2  rounded-pill boton-pagar-membresia" @click = "obtenerOro"> Obtener Memebresia </a>
 
                     </div>
                 </div>
@@ -119,7 +124,10 @@
 
                         </ul>
 
-                        <router-link to="/pago"> <a href="#" class="btn btn-block p-2  rounded-pill boton-pagar-membresia" @click = "obtenerPlatino"> Obtener Memebresia </a></router-link>
+                         <a href="#" 
+                         data-bs-toggle="modal" data-bs-target="#Modal_Pago" 
+                         class="btn btn-block p-2  rounded-pill boton-pagar-membresia" @click = "obtenerPlatino"> 
+                         Obtener Memebresia </a>
 
                     </div>
                 </div>
@@ -135,6 +143,7 @@
 </template>
 
 <script>
+    import modalPago from '@/components/membresia/modalPago.vue'
     export default {
 
         data(){

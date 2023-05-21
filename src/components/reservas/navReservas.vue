@@ -3,9 +3,11 @@
         <!-- Barra de Navegacion Reservas -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" >
 		<div class="container">
-			<a class="navbar-brand" href="#"><span class="text-complejo ">
+			<router-link to="/"><a class="navbar-brand" href="#"><span class="text-complejo ">
 				<img class="torologo" src="" alt="">
-			</span>Novillos</a> <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button"><span class="navbar-toggler-icon	"></span></button>
+			</span>Novillos</a>
+        </router-link> 
+        <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button"><span class="navbar-toggler-icon	"></span></button>
 			<div class="" id="navbarSupportedContent">
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 					<li class="nav-item">
@@ -96,13 +98,16 @@
         margin-left: 40px;
     }
 
-
+    .navbar-brand{
+        text-decoration: none !important;
+    }
     .navbar-light .navbar-brand {
         color: black;
         font-size: 25px;
         text-transform: uppercase;
         font-weight: bold;
         letter-spacing: 2px;
+        
     }
     .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
         color: #000;

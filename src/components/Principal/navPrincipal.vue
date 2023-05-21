@@ -52,6 +52,7 @@
 </template>
 
 <script>
+
 import { signOut } from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
 export default {
