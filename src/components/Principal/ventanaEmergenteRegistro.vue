@@ -113,9 +113,12 @@ export default {
       console.log(this.telefono)
       */
       let eRegular = /[a-zA-Z0-9]+@(gmail|outlook|Utalca)\.com|cl|org|es/; 
+      const fecha = new Date();
+
+      let mes = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+      const inicio = fecha.getDate()+" de "+mes[fecha.getMonth()]+" del "+fecha.getFullYear();
       
       if(eRegular.test(this.correo)){ 
-
         try {
           console.log("hola registro")
           const credenciales = await createUserWithEmailAndPassword(this.$store.state.auth,this.correo,this.contraseña)
@@ -125,15 +128,16 @@ export default {
                 nombre: this.nombre,
                 apellido: this.apellido,
                 telefono: this.telefono,
-                membresia: "Bronce"
               });
 
               await setDoc(doc(this.$store.state.db, "membresia",user.uid), { //db.collection("usuario").doc(cred.user.uid).set({
                 HorasReservas: 2,
                 ReservasDescuento: 0,
                 ReservasGratis: 0,
-                nivel:"Bronce",
-                refUsuario: user.uid,
+                Nivel:"Bronce",
+                Puntos:300,
+                Inicio: inicio,
+                Termino:"Indefinido",
               });
               this.$store.state.mostrar = false
             //user.displayName = this.nombre +" "+ this.apellido

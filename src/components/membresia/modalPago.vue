@@ -115,6 +115,11 @@
         let eRegular2 = /[A-Za-z]/;
         let eRegular3 = /[0-9]+[0-9]+-+[0-9]+[0-9]/;
         let eRegular4 = /[0-9]+[0-9]+[0-9]/;
+        const fecha = new Date();
+        let mes = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+        const inicio = fecha.getDate()+" de "+mes[fecha.getMonth()]+" del "+fecha.getFullYear();
+        const termino = fecha.getDate()+" de "+mes[fecha.getMonth()+1]+" del "+fecha.getFullYear();
+
         if(this.Nombre === null || !eRegular2.test(this.Nombre)){
           swal.fire({
             icon:'error',
@@ -149,7 +154,11 @@
                    HorasReservas: 5,
                    ReservasDescuento: 20,
                    ReservasGratis: 1,
-                   nivel: "Oro",
+                   Nivel: "Oro",
+                   Puntos: 700,
+                   Inicio: inicio,
+                   Termino: termino,
+
                  }); 
 
                  swal.fire({
@@ -163,7 +172,10 @@
                    HorasReservas: 7,
                    ReservasDescuento: 50,
                    ReservasGratis: 3,
-                   nivel: "Platino",
+                   Nivel: "Platino",
+                   Puntos: 1000,
+                   Inicio: inicio,
+                   Termino: termino,
                  });
 
                 swal.fire({
@@ -176,7 +188,10 @@
                    HorasReservas: 2,
                    ReservasDescuento: 0,
                    ReservasGratis: 0,
-                   nivel: "Bronce",
+                   Nivel: "Bronce",
+                   Puntos: 300,
+                   Inicio: inicio,
+                   Termino: "Indefinido",
                  });
 
                  swal.fire({
