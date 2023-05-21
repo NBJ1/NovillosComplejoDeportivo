@@ -28,6 +28,7 @@
                             id="nombre"
                             name="nombre"
                             required
+                            v-model="Nombre"
                         />
                         </div>
                         <div class="form-group">
@@ -38,6 +39,7 @@
                             id="tarjeta"
                             name="tarjeta"
                             required
+                            v-model="numero"
                         />
                         </div>
                         <div class="form-group">
@@ -48,7 +50,8 @@
                             id="vencimiento"
                             name="vencimiento"
                             placeholder="MM/AA"
-                            required
+                            required 
+                            v-model = "fechaV"
                         />
                         </div>
                         <div class="form-group">
@@ -59,6 +62,7 @@
                             id="cvv"
                             name="cvv"
                             required
+                            v-model = "codigo"
                         />
                         </div>
                         <div class="form-group">
@@ -73,6 +77,7 @@
                             id="monto"
                             name="monto"
                             required
+                            v-model ="dinero"
                             />
                         </div>
                         </div>
@@ -100,72 +105,101 @@
   export default {
     data() {
       return {
-        activeModal: null,
+       // activeModal: null,
+        
       };
     },
     methods: {
       async realizarPago(){
-        const user = this.$store.state.auth.currentUser;
-        const suscripcionRef = doc(this.$store.state.db, "membresia",user.uid);
-        const randomNumber = Math.random();
-        if(randomNumber < 0.95){
-          if(this.$store.state.suscripcion === 1){
-            await updateDoc(suscripcionRef, {
-                HorasReservas: 5,
-                ReservasDescuento: 20,
-                ReservasGratis: 1,
-                nivel: "Oro",
-            }); 
-
-            swal.fire({
-              icon:'success',
-              title:'Pago Exitoso',
-              text:'Ya tienes tu membresia tipo Oro',
-            })
-
-          }else if(this.$store.state.suscripcion === 2){
-            await updateDoc(suscripcionRef, {
-                HorasReservas: 7,
-                ReservasDescuento: 50,
-                ReservasGratis: 3,
-                nivel: "Platino",
-            });
-
-            swal.fire({
-              icon:'success',
-              title:'Pago Exitoso',
-              text:'Ya tienes tu membresia tipo Platino',
-            })
-          }else if(this.$store.state.suscripcion === 3){
-            await updateDoc(suscripcionRef, {
-                HorasReservas: 2,
-                ReservasDescuento: 0,
-                ReservasGratis: 0,
-                nivel: "Bronce",
-            });
-
-            swal.fire({
-              icon:'success',
-              title:'Pago Exitoso',
-              text:'Ya tienes tu membresia tipo Bronce',
-            })
-            
-          }
-          const singupModal = document.querySelector('#Modal_Pago')
-          const modal =bootstrap.Modal.getInstance(singupModal)
-           modal.hide();
-          this.$store.state.suscripcion = 0 
-
-        }else{
+        let eRegular = /[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]/;
+        let eRegular2 = /[A-Za-z]/;
+        let eRegular3 = /[0-9]+[0-9]+-+[0-9]+[0-9]/;
+        let eRegular4 = /[0-9]+[0-9]+[0-9]/;
+        if(this.Nombre === null || !eRegular2.test(this.Nombre)){
           swal.fire({
             icon:'error',
-            title:'Pago Fallido',
-            text:'Vuelve a ingresar los datos de tu metodo de pago',
+            title:'Error',
+            text:'Porfavor ingrese el nombre de la tarjeta',
           })
-        }
+        } else if(this.numero === null || !eRegular.test(this.numero) || this.numero.length != 10 ){
+          swal.fire({
+            icon:'error',
+            title:'Error',
+            text:'Porfavor ingrese el número de la tarjeta',
+          })
+        } else if (this.fechaV === null || !eRegular3.test(this.fechaV)|| this.fechaV.length != 5){
+          swal.fire({
+            icon:'error',
+            title:'Error',
+            text:'Porfavor ingrese la fecha de vencimiento de su tarjeta',
+          })
+        } else if (this.codigo === null || !eRegular4.test(this.codigo) || this.codigo.length != 3 ){
+          swal.fire({
+            icon:'error',
+            title:'Error',
+            text:'Porfavor ingrese el CVV de su tarjeta',
+          })
+        }  else{
+            const user = this.$store.state.auth.currentUser;
+            const suscripcionRef = doc(this.$store.state.db, "membresia",user.uid);
+            const randomNumber = Math.random();
+            if(randomNumber < 0.95){
+              if(this.$store.state.suscripcion === 1){
+                 await updateDoc(suscripcionRef, {
+                   HorasReservas: 5,
+                   ReservasDescuento: 20,
+                   ReservasGratis: 1,
+                   nivel: "Oro",
+                 }); 
+
+                 swal.fire({
+                   icon:'success',
+                   title:'Pago Exitoso',
+                   text:'Ya tienes tu membresia tipo Oro',
+                 })
+
+               }else if(this.$store.state.suscripcion === 2){
+                 await updateDoc(suscripcionRef, {
+                   HorasReservas: 7,
+                   ReservasDescuento: 50,
+                   ReservasGratis: 3,
+                   nivel: "Platino",
+                 });
+
+                swal.fire({
+                  icon:'success',
+                  title:'Pago Exitoso',
+                  text:'Ya tienes tu membresia tipo Platino',
+                })
+               }else if(this.$store.state.suscripcion === 3){
+                 await updateDoc(suscripcionRef, {
+                   HorasReservas: 2,
+                   ReservasDescuento: 0,
+                   ReservasGratis: 0,
+                   nivel: "Bronce",
+                 });
+
+                 swal.fire({
+                   icon:'success',
+                   title:'Pago Exitoso',
+                   text:'Ya tienes tu membresia tipo Bronce',
+                 })
+            
+               }
+               const singupModal = document.querySelector('#Modal_Pago')
+               const modal =bootstrap.Modal.getInstance(singupModal)
+               modal.hide();
+               this.$store.state.suscripcion = 0 
+
+            }else{
+               swal.fire({
+                 icon:'error',
+                 title:'Pago Fallido',
+                 text:'Vuelve a ingresar los datos de tu metodo de pago',
+               })
+             }
+          }
       }
-      
-      
     },
   };
   </script>
@@ -220,5 +254,8 @@
   .fondo{
     background-color: red;
   }
+
+  
   </style>
+  
   

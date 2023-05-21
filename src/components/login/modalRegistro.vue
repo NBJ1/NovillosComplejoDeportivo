@@ -84,7 +84,7 @@ aria-hidden="true">
     }
     
     #btnListo{
-        background-color: ;
+
     }
     .modal-body {
         text-align: left;
