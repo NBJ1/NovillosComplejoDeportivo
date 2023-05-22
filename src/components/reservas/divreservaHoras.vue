@@ -74,7 +74,7 @@
   
   <script>
   import { min } from 'date-fns';
-  
+  import {getDocs,collection,addDoc,doc} from 'firebase/firestore'
   
   
       export default {
@@ -84,6 +84,7 @@
             date:  null,
             Deporte: null,
             Horas_Reserva: null,
+            ocupado:0,
   
   
           states: [
@@ -100,9 +101,10 @@
         },
        methods:{
   
-        obtenerFecha(){
+        async obtenerFecha(){
           this.$store.state.Fecha = this.date
          // console.log(this.$store.state.Fecha);
+          
           
         },
         obtenerDeporte(){
@@ -121,30 +123,55 @@
           console.log(this.$store.state.Fecha);
           console.log(this.$store.state.Deporte)
           console.log(this.$store.state.Horas_Reserva)
-          try {
-            const user = this.$store.state.auth.currentUser;
-              if(user){
-                await setDoc(doc(this.$store.state.db, "reservas",user.uid), { 
-                  Fecha: this.$store.state.Fecha,
-                  deporte: this.Deporte,
-                  estado: "Reservado",
-                  hora: this.$store.state.Horas_Reserva
-                });
-              }
-              else{
+
+          const querySnapshot = await getDocs(collection(this.$store.state.db,'reservas'))
+          querySnapshot.forEach(doc =>{
+            if(doc.data().Fecha == this.$store.state.Fecha && 
+            doc.data().hora == this.$store.state.Horas_Reserva &&
+            doc.data().deporte == this.$store.state.Deporte){
+              this.ocupado=1
+              console.log("se encontro")
+            }
+
+          })
+          if(this.ocupado==0){
+            try {
+              const user = this.$store.state.auth.currentUser;
+                if(user){
                 
-                
-                swal.fire({
-                    icon:'error',
-                    title:'Error Inicio Sesion',
-                    text:'Debes iniciar sesion previamente',
-                })
-              }
+                  const docRef = await addDoc(collection(this.$store.state.db, "reservas"), {
+                    Fecha: this.$store.state.Fecha,
+                    deporte: this.Deporte,
+                    estado: "Reservado",
+                    hora: this.$store.state.Horas_Reserva,
+                    refUsuario: user.uid,
+                  });
+                  swal.fire({
+                      icon:'success',
+                      title:'Hora Reservada',
+                      text:'Su Reserva ha sido exitosa',
+                  })
+                }
+                else{
+                  swal.fire({
+                      icon:'error',
+                      title:'Error Inicio Sesion',
+                      text:'Debes iniciar sesion previamente',
+                  })
+                }
+            }
+            catch (error) {
+              console.log("error")
+              console.log(error)
+            }
+          }else{
+            swal.fire({
+                      icon:'error',
+                      title:'Ocupado',
+                      text:'La reserva que has seleccionado ya se encuentra ocupada',
+                  })
           }
-          catch (error) {
-            console.log("error")
-            console.log(error)
-          }
+
         }
           
        },
