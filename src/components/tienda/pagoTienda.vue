@@ -49,7 +49,7 @@
                             class="form-control"
                             id="vencimiento"
                             name="vencimiento"
-                            placeholder="MM/AA"
+                            placeholder="MM-AA"
                             required 
                             v-model = "fechaV"
                         />
@@ -101,7 +101,7 @@
   </template>
   
   <script>
-  import { doc, updateDoc } from "firebase/firestore";
+  import {getDocs,collection,addDoc,doc} from 'firebase/firestore'
 
   export default {
     data() {
@@ -111,15 +111,16 @@
       };
     },
     methods: {
-      async realizarPago(){
+     async realizarPago(){
         let eRegular = /[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]/;
         let eRegular2 = /[A-Za-z]/;
         let eRegular3 = /[0-9]+[0-9]+-+[0-9]+[0-9]/;
         let eRegular4 = /[0-9]+[0-9]+[0-9]/;
         const fecha = new Date();
         let mes = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-        const inicio = fecha.getDate()+" de "+mes[fecha.getMonth()]+" del "+fecha.getFullYear();
-        const termino = fecha.getDate()+" de "+mes[fecha.getMonth()+1]+" del "+fecha.getFullYear();
+        const dia = fecha.getDate()+" de "+mes[fecha.getMonth()]+" del "+fecha.getFullYear();
+        const hora = fecha.getHours() + ":" + fecha.getMinutes();
+
 
         if(this.Nombre === null || !eRegular2.test(this.Nombre)){
           swal.fire({
@@ -147,65 +148,134 @@
           })
         }  else{
             const user = this.$store.state.auth.currentUser;
-            const suscripcionRef = doc(this.$store.state.db, "membresia",user.uid);
             const randomNumber = Math.random();
             if(randomNumber < 0.95){
-              if(this.$store.state.suscripcion === 1){
-                 await updateDoc(suscripcionRef, {
-                   HorasReservas: 5,
-                   ReservasDescuento: 20,
-                   ReservasGratis: 1,
-                   Nivel: "Oro",
-                   Puntos: 700,
-                   Inicio: inicio,
-                   Termino: termino,
-
-                 }); 
-
-                 swal.fire({
-                   icon:'success',
-                   title:'Pago Exitoso',
-                   text:'Ya tienes tu membresia tipo Oro',
-                 })
-
-               }else if(this.$store.state.suscripcion === 2){
-                 await updateDoc(suscripcionRef, {
-                   HorasReservas: 7,
-                   ReservasDescuento: 50,
-                   ReservasGratis: 3,
-                   Nivel: "Platino",
-                   Puntos: 1000,
-                   Inicio: inicio,
-                   Termino: termino,
-                 });
+                if(this.$store.state.tienda === 1){
+                  const docRef = await addDoc(collection(this.$store.state.db, "Compras"), {
+                    fecha: dia,
+                    hora: hora,
+                    precio: "$319.990",
+                    producto: "Pala Bullpadel",
+                    refUsuario: user.uid,
+                  });
 
                 swal.fire({
                   icon:'success',
                   title:'Pago Exitoso',
-                  text:'Ya tienes tu membresia tipo Platino',
+                  text:'Tu compra se a realizado con exito',
                 })
-               }else if(this.$store.state.suscripcion === 3){
-                 await updateDoc(suscripcionRef, {
-                   HorasReservas: 2,
-                   ReservasDescuento: 0,
-                   ReservasGratis: 0,
-                   Nivel: "Bronce",
-                   Puntos: 300,
-                   Inicio: inicio,
-                   Termino: "Indefinido",
-                 });
 
-                 swal.fire({
-                   icon:'success',
-                   title:'Pago Exitoso',
-                   text:'Ya tienes tu membresia tipo Bronce',
-                 })
-            
-               }
+                }else if(this.$store.state.tienda === 2){
+                  const docRef = await addDoc(collection(this.$store.state.db, "Compras"), {
+                    fecha: dia,
+                    hora: hora,
+                    precio: "$89.990",
+                    producto: "Bolso Paletero",
+                    refUsuario: user.uid,
+                  });
+
+                  swal.fire({
+                    icon:'success',
+                    title:'Pago Exitoso',
+                    text:'Tu compra se a realizado con exito',
+                  })
+
+                }else if(this.$store.state.tienda === 3){
+                  const docRef = await addDoc(collection(this.$store.state.db, "Compras"), {
+                    fecha: dia,
+                    hora: hora,
+                    precio: "$109.990",
+                    producto: "Zapatillas Bullpadel",
+                    refUsuario: user.uid,
+                  });
+
+                  swal.fire({
+                    icon:'success',
+                    title:'Pago Exitoso',
+                    text:'Tu compra se a realizado con exito',
+                  })
+
+                }else if(this.$store.state.tienda === 4){
+                  const docRef = await addDoc(collection(this.$store.state.db, "Compras"), {
+                    fecha: dia,
+                    hora: hora,
+                    precio: "$119.990",
+                    producto: "Zapatillas Nox",
+                    refUsuario: user.uid,
+                  });
+
+                  swal.fire({
+                    icon:'success',
+                    title:'Pago Exitoso',
+                    text:'Tu compra se a realizado con exito',
+                  })
+
+                }else if(this.$store.state.tienda === 5){
+                  const docRef = await addDoc(collection(this.$store.state.db, "Compras"), {
+                    fecha: dia,
+                    hora: hora,
+                    precio: "$9.990",
+                    producto: "Calcetin Nox",
+                    refUsuario: user.uid,
+                  });
+
+                  swal.fire({
+                    icon:'success',
+                    title:'Pago Exitoso',
+                    text:'Tu compra se a realizado con exito',
+                  })
+
+                }else if(this.$store.state.tienda === 6){
+                  const docRef = await addDoc(collection(this.$store.state.db, "Compras"), {
+                    fecha: dia,
+                    hora: hora,
+                    precio: "$25.990",
+                    producto: "Polera Wilson",
+                    refUsuario: user.uid,
+                  });
+
+                  swal.fire({
+                    icon:'success',
+                    title:'Pago Exitoso',
+                    text:'Tu compra se a realizado con exito',
+                  })
+
+                }else if(this.$store.state.tienda === 7){
+                  const docRef = await addDoc(collection(this.$store.state.db, "Compras"), {
+                    fecha: dia,
+                    hora: hora,
+                    precio: "$8.990",
+                    producto: "Pelotas Head Padel",
+                    refUsuario: user.uid,
+                  });
+
+                  swal.fire({
+                    icon:'success',
+                    title:'Pago Exitoso',
+                    text:'Tu compra se a realizado con exito',
+                  })
+
+                }else if(this.$store.state.tienda === 8){
+                  const docRef = await addDoc(collection(this.$store.state.db, "Compras"), {
+                    fecha: dia,
+                    hora: hora,
+                    precio: "$39.990",
+                    producto: "Poleron Wilson Gris",
+                    refUsuario: user.uid,
+                  });
+
+                  swal.fire({
+                    icon:'success',
+                    title:'Pago Exitoso',
+                    text:'Tu compra se a realizado con exito',
+                  })
+
+                }
+               
                const singupModal = document.querySelector('#Modal_Pago')
                const modal =bootstrap.Modal.getInstance(singupModal)
                modal.hide();
-               this.$store.state.suscripcion = 0 
+             
 
             }else{
                swal.fire({

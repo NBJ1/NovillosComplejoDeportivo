@@ -30,7 +30,8 @@ export default new Vuex.Store({
       auth,
       db,
       suscripcion: 0,
-      user,   
+      user,  
+      tienda: 0, 
   },
   getters: {
   },
