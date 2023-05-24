@@ -2,7 +2,7 @@
     <div>
           <navTienda/>
           <menuTienda/>
-        
+            
     </div>
     </template>
     

@@ -19,7 +19,7 @@
                     <div>
                         <h3>Pago con Tarjeta</h3>
                     </div>
-                    <form action="#" method="post">
+                  
                         <div class="form-group">
                         <label for="nombre">Nombre en la tarjeta:</label>
                         <input
@@ -43,7 +43,7 @@
                         />
                         </div>
                         <div class="form-group">
-                        <label for="vencimiento">Fecha de vencimiento:</label>
+                        <label>Fecha de vencimiento:</label>
                         <input
                             type="text"
                             class="form-control"
@@ -55,7 +55,7 @@
                         />
                         </div>
                         <div class="form-group">
-                        <label for="cvv">CVV:</label>
+                        <label>CVV:</label>
                         <input
                             type="text"
                             class="form-control"
@@ -66,7 +66,7 @@
                         />
                         </div>
                         <div class="form-group">
-                        <label for="monto">Monto a pagar:</label>
+                        <label>Monto a pagar:</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                             <span class="input-group-text">$</span>
@@ -75,16 +75,19 @@
                             type="text"
                             class="form-control"
                             id="monto"
-                            name="monto"
-                            required
-                            v-model ="dinero"
+                            name="monto"    
+                            v-model="dinero"         
+                            value="aodhdu"
                             />
+
+                           
                         </div>
                         </div>
-                        <button  class="btn btn-primary" @click="realizarPago">
+                        <br>
+                        <button  class="btn btn-primary" @click ="realizarPago">
                         Pagar 
                         </button>
-                    </form>
+                  
                     </div>
                     <!-- Fin form -->
                 </div>
@@ -106,6 +109,7 @@
     data() {
       return {
        // activeModal: null,
+       Nombre:null,dinero:null,codigo:null,numero:null,fechaV:null,
         
       };
     },
@@ -119,6 +123,7 @@
         let mes = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
         const inicio = fecha.getDate()+" de "+mes[fecha.getMonth()]+" del "+fecha.getFullYear();
         const termino = fecha.getDate()+" de "+mes[fecha.getMonth()+1]+" del "+fecha.getFullYear();
+
 
         if(this.Nombre === null || !eRegular2.test(this.Nombre)){
           swal.fire({
@@ -145,11 +150,13 @@
             text:'Porfavor ingrese el CVV de su tarjeta',
           })
         }  else{
+        
             const user = this.$store.state.auth.currentUser;
             const suscripcionRef = doc(this.$store.state.db, "membresia",user.uid);
             const randomNumber = Math.random();
             if(randomNumber < 0.95){
               if(this.$store.state.suscripcion === 1){
+              
                  await updateDoc(suscripcionRef, {
                    HorasReservas: 5,
                    ReservasDescuento: 20,
@@ -160,8 +167,9 @@
                    Termino: termino,
 
                  }); 
-
+                 
                  swal.fire({
+                  
                    icon:'success',
                    title:'Pago Exitoso',
                    text:'Ya tienes tu membresia tipo Oro',
@@ -214,7 +222,12 @@
                })
              }
           }
-      }
+      },
+
+
+
+
+
     },
   };
   </script>

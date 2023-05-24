@@ -156,6 +156,7 @@
 
             obtenerOro(){
                 this.$store.state.suscripcion = 1
+           
             },
 
             obtenerPlatino(){
