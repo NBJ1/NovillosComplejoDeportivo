@@ -34,9 +34,6 @@
         </table>
 
 
-        <div class="">
-              <button class="btn btn-outline-success " type="submit"  @click="obtenerUsuarios" id="botonRanking">AAAA</button>
-        </div>
 
     </div>
 </template>

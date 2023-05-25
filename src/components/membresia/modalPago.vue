@@ -93,7 +93,7 @@
   
   <script>
   import { doc, updateDoc } from "firebase/firestore";
-
+  
   export default {
     data() {
       return {

@@ -97,7 +97,7 @@
     data() {
       return {
        // activeModal: null,
-        
+        codigo:null,fechaV:null,numero:null,Nombre:null,
       };
     },
     methods: {

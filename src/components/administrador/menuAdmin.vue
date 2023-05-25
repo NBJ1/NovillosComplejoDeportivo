@@ -68,11 +68,7 @@
           </tbody>
         </table>
       </div>
-      <div class="col-lg-3">
-        <h3>Acciones
-        </h3>
-        <button class=" btn btn-success">Agregar Usuario</button>
-      </div>
+     
     </div>
   </div>
 <!--Ventana emergente Inicio-->
@@ -83,16 +79,13 @@
 
 
 
-<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js"></script>
+
+
+
+
 
 </template>
 <script>
-
-
-
-
-
 //para la trikiñuela
 
 import {

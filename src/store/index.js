@@ -19,28 +19,29 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 const user = auth.currentUser;
-const app2 = initializeApp(firebaseConfig);
+const id = ""
 
-//Admin Borrar cuentas
-const id="";
 //export const db = getFirestore(app)
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-      id,
       mostrar: true,
       app,
-      app2,
-      adm: false,
       auth,
       db,
       suscripcion: 0,
-      user,  
-      tienda: 0, 
+      user,   
       activarModal: true,
       mostrarbtnResesrva : true,
       mostrarbtnMatch: true,
+      tienda: 0,
+
+      id,
+      adm: false,
+
+
+
   },
   getters: {
   },
