@@ -42,6 +42,10 @@
 			<div class="logged-in" v-if="!$store.state.mostrar" @click="cerrarSesion">
 				<p><a class="nav-item btn btn-outline-success5 " href="#" id="logout" >Cerrar Sesion</a></p>
 			</div>
+
+			<div class="adm" v-if="$store.state.adm" @click="Tools">
+				<p><a class="nav-item btn btn-outline-success5 " href="#"  id="tools" > <router-link to="/PagAdmin"><button>Herramientas Administrador</button></router-link></a></p>
+			</div>
     </div>
 
 	</nav>
@@ -65,7 +69,7 @@ export default {
 methods:{
 	
 	async cerrarSesion(){
-		
+		//this.$store.state.adm = false
 		
 		//onAuthStateChanged(this.$store.state.auth, async(user) =>{
 		const user = this.$store.state.auth.currentUser;	
@@ -77,12 +81,17 @@ methods:{
             	title:'Sesion Finalizada',
             	text:'Has Cerrado Sesion Correctamente',
         		})
-				this.$store.state.mostrar = true	
+				this.$store.state.mostrar = true
+				this.$store.state.adm = false	
+				
 			}
 		//})
-        	
-        
+ 
 	},
+
+	async Tools(){
+			
+		},
 	
 }
 

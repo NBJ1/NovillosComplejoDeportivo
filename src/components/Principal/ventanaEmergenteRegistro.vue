@@ -98,6 +98,7 @@ export default {
       telefono: "",
       correo:"",
       contraseña:"",
+      rol:""
     }
   },
   methods:{
@@ -128,6 +129,10 @@ export default {
                 nombre: this.nombre,
                 apellido: this.apellido,
                 telefono: this.telefono,
+                refUsuario: user.uid,
+                contraseña: this.contraseña,
+                correo: this.correo,
+                rol: "usuario"
               });
 
               await setDoc(doc(this.$store.state.db, "membresia",user.uid), { //db.collection("usuario").doc(cred.user.uid).set({

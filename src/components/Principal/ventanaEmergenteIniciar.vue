@@ -58,24 +58,43 @@
 
 <script>
 import { signInWithEmailAndPassword } from "firebase/auth"
+import {collection, getDocs, doc} from "firebase/firestore";
 export default {
 
   data(){
       return{
+
+        tablaRef: "",
         email: "",
-        contraseña: ""
+        contraseña: "",
+        datos: null,
       }
   },
   methods:{
-    
+
+
 
 	async iniciarsesion(){
-    //console.log(this.email)
-		
+   
+    
+   
     try {
-        
-        const credencial = await signInWithEmailAndPassword (this.$store.state.auth, this.email, this.contraseña)
-        
+      console.log("Dentro del try");
+  
+
+      const credencial = await signInWithEmailAndPassword (this.$store.state.auth, this.email, this.contraseña)
+    const user = this.$store.state.auth.currentUser
+    const querySnapshot = await getDocs(collection(this.$store.state.db,'usuario'))
+    
+          querySnapshot.forEach(doc =>{
+            if(doc.data().refUsuario == user.uid){
+              if(doc.data().rol == "admin"){
+                this.$store.state.adm = true
+              }
+            }
+          
+          })
+
 
         /*-------------ocultar modal--------*/
         const modal = bootstrap.Modal.getInstance(document.querySelector('#Login_Modal'))
