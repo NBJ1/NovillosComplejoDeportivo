@@ -38,6 +38,9 @@ export default new Vuex.Store({
       suscripcion: 0,
       user,  
       tienda: 0, 
+      activarModal: true,
+      mostrarbtnResesrva : true,
+      mostrarbtnMatch: true,
   },
   getters: {
   },

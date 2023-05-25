@@ -28,7 +28,7 @@
 							<div class="overlay">
 								<p class="">Tenis</p>
 								<div class="btn-reserva-cancha">
-									<p><a class="btn btn-successcanchas" href="#">Reservar Cancha</a></p>
+									<router-link to="/PagReservas"><a class="btn btn-successcanchas">Reservar Cancha</a></router-link>
 								</div>
 							</div>
 						</div>
@@ -40,7 +40,7 @@
 							<div class="overlay">
 								<p class="">Basquetball</p>
 								<div class="btn-reserva-cancha">
-									<p><a class="btn btn-successcanchas" href="#">Reservar Cancha</a></p>
+									<router-link to="/PagReservas"><a class="btn btn-successcanchas">Reservar Cancha</a></router-link>
 								</div>
 							</div>
 						</div>
@@ -52,7 +52,7 @@
 							<div class="overlay">
 								<p class="">Padel</p>
 								<div class="btn-reserva-cancha">
-									<p><a class="btn btn-successcanchas" href="#">Reservar Cancha</a></p>
+									<router-link to="/PagReservas"><a class="btn btn-successcanchas">Reservar Cancha</a></router-link>
 								</div>
 							</div>
 						</div>
@@ -64,7 +64,7 @@
 							<div class="overlay">
 								<p class="">Piscina</p>
 								<div class="btn-reserva-cancha">
-									<p><a class="btn btn-successcanchas" href="#">Reservar Cancha</a></p>
+									<router-link to="/PagReservas"><a class="btn btn-successcanchas">Reservar Cancha</a></router-link>
 								</div>
 							</div>
 						</div>
@@ -76,7 +76,7 @@
 						<div class="overlay">
 							<p class="">Voleibol</p>
 							<div class="btn-reserva-cancha">
-								<p><a class="btn btn-successcanchas" href="#">Reservar Cancha</a></p>
+								<router-link to="/PagReservas"><a class="btn btn-successcanchas">Reservar Cancha</a></router-link>
 							</div>
 						</div>
 					</div>

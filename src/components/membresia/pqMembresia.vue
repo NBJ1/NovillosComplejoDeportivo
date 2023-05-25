@@ -8,7 +8,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="section-header text-center pb-5">
-                        <h1 class="text-center fw-bold titulo-planes">POR QUE ELEGIR MEMBRESIA</h1>
+                        <h1 class="text-center fw-bold titulo-planes"></h1>
 						<p class="parrafo-nosotros"></p>
 					</div>
 				</div>

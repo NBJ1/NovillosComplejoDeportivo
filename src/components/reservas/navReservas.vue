@@ -1,12 +1,11 @@
 <template>
-<div>
+<div >
         <!-- Barra de Navegacion Reservas -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" >
 		<div class="container">
-			<router-link to="/"><a class="navbar-brand" href="#"><span class="text-complejo ">
-				<img class="torologo" src="" alt="">
-			</span>Novillos</a>
-        </router-link> 
+			<a class="navbar-brand" href="#"><span class="text-complejo ">
+				<img src="" alt="">
+			</span>Novillos</a> 
         <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button"><span class="navbar-toggler-icon	"></span></button>
 			<div class="" id="navbarSupportedContent">
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -16,21 +15,12 @@
 					<li class="nav-item">
 						<a class="nav-link" href="#reservas">Reservas</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#membresia">Membresia</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#canchas">Nosotros</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#nosotros">Nosotros</a>
-					</li>
-
+		
 				</ul>
 
 			</div>
 			<form class="d-flex" role="search">
-				<button class="btn btn-outline-success" type="submit">Nombre Usuario</button>
+                <input type="text" :placeholder="hola" disabled />
 			</form>
 		</div>
 	</nav>
@@ -40,6 +30,29 @@
 
 <script>
     export default {
+
+            data(){
+                return{
+             
+                }
+            },
+            
+
+
+            computed:{
+                hola(){
+                    const user = this.$store.state.auth.currentUser;
+                    
+                    if(user){
+                        return user.email
+                    }else{
+                       
+                        return ""
+                    }
+                   
+                }
+            }
+
 
     }
 </script>
@@ -52,6 +65,11 @@
 }
 
         
+    .text-complejo{
+        text-decoration: none;
+    }
+
+
     .navbar{
         border-bottom: 2px solid rgb(206, 206, 206);
     }

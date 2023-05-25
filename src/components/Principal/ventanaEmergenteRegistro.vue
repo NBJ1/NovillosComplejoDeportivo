@@ -125,6 +125,9 @@ export default {
           const credenciales = await createUserWithEmailAndPassword(this.$store.state.auth,this.correo,this.contraseña)
           const user = this.$store.state.auth.currentUser;
             if(user){
+              user.displayName = this.nombre
+
+
               await setDoc(doc(this.$store.state.db, "usuario",user.uid), { //db.collection("usuario").doc(cred.user.uid).set({
                 nombre: this.nombre,
                 apellido: this.apellido,

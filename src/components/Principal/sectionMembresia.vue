@@ -20,7 +20,7 @@
 							<div class="card-body text-dark">
 								<div class="img-area mb-4"><img alt="" class="img-fluid" src=""></div>
 								<h3 class="card-title ">Bronce</h3>
-								<p class="lead ">Acceso a las instalaciones del complejo, incluyendo todas las canchas, piscina, y estacionamiento, puede acceder a ella totalmente gratis suscribiendose en la pagina para luego poder optar a otros planes en el futuro y obtener los mejores beneficios.</p><a class="btn btn-success1">Obtener membresia</a>
+								<p class="lead ">Acceso a las instalaciones del complejo, incluyendo todas las canchas, piscina, y estacionamiento, puede acceder a ella totalmente gratis suscribiendose en la pagina para luego poder optar a otros planes en el futuro y obtener los mejores beneficios.</p><router-link to="/PagMembresia"><a class="btn btn-success1">Obtener membresia</a></router-link>
 							</div>
 						</div>
 					</div>
@@ -38,7 +38,7 @@
 							<div class="card-body text-dark">
 								<div class="img-area mb-4"><img alt="" class="img-fluid" src=""></div>
 								<h3 class="card-title">Platino</h3>
-								<p class="lead">Acceso a todo lo incluído en el plan Oro y entrenamiento personalido en el área que desee, contara con descuentos mas exclusivos que en la suscripcion de oro y tendra acceso al sistema MatchMaking con partidos personalizados y canchas de calidad exclusivas.</p><router-link to="/PagAdmin"><a class="btn btn-success1">Obtener membresia</a></router-link>
+								<p class="lead">Acceso a todo lo incluído en el plan Oro y entrenamiento personalido en el área que desee, contara con descuentos mas exclusivos que en la suscripcion de oro y tendra acceso al sistema MatchMaking con partidos personalizados y canchas de calidad exclusivas.</p><router-link to="/PagMembresia"><a class="btn btn-success1">Obtener membresia</a></router-link>
 							</div>
 						</div>
 					</div>

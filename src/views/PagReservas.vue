@@ -21,7 +21,7 @@ import navReservas from '@/components/reservas/navReservas.vue';
     navReservas,
     DivFotosReserva,
     DivreservaHoras,
-    FooterReserva
+    FooterReserva,
 }
 }
 </script>
