@@ -1,5 +1,5 @@
 <template>
-<div>
+<div >
         <!-- Barra de Navegacion Reservas -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" >
 		<div class="container">
@@ -15,16 +15,7 @@
 					<li class="nav-item">
 						<a class="nav-link" href="#reservas">Reservas</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#membresia">Membresia</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#canchas">Nosotros</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#nosotros">Nosotros</a>
-					</li>
-
+		
 				</ul>
 
 			</div>
@@ -53,7 +44,7 @@
                     const user = this.$store.state.auth.currentUser;
                     
                     if(user){
-                        return user.displayName
+                        return user.email
                     }else{
                        
                         return ""

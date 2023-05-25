@@ -15,12 +15,7 @@
 					<li class="nav-item">
 						<a class="nav-link" href="#planes">Planes</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#canchas">Nosotros</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#nosotros">Contactanos</a>
-					</li>
+				
 
 				</ul>
 			</div>

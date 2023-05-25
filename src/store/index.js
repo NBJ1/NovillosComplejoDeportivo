@@ -33,6 +33,7 @@ export default new Vuex.Store({
       user,   
       activarModal: true,
       mostrarbtnResesrva : true,
+      mostrarbtnMatch: true,
   },
   getters: {
   },

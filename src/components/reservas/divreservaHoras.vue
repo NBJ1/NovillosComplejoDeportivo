@@ -1,5 +1,5 @@
 <template>
-  <div  >
+  <div id="reservas" >
     <br>
     <br>
   
@@ -52,9 +52,18 @@
 
 
             <div class="">
-              <button class="btn btn-outline-success " type="submit" :disabled="boton_deshabilitado" @click="btn_verificar"  v-if="mostrarbtnResesrva">
+              <button class="btn btn-outline-success m-4 " type="submit" :disabled="boton_deshabilitado" @click="btn_verificar"  v-if="mostrarbtnResesrva">
                 VERIFICAR HORA
               </button>
+
+              <button class="btn btn-outline-success boton-match"   :disabled="boton_deshabilitado"   @click="guardarMatchmaking" >
+                MATCHMAKING
+              </button>
+   
+            
+
+
+
             </div>  
 
             <br>
@@ -62,12 +71,17 @@
               <button class="btn btn-outline-success " type="submit" :disabled="boton_deshabilitado" @click="btn_reserva" id="botonReserva"    data-bs-toggle="modal" data-bs-target="#Modal_PagoRes" v-if="!mostrarbtnResesrva" >
                 RESERVAR
               </button>
-            </div>          
+            </div>    
+            
+            
+            
   
       </div>
 
       <div class="col">
         <!-- COLUMNA DE SELECCION DE HORAS -->
+
+
       <div class="col">
                    
       </div>
@@ -146,20 +160,9 @@
                           />
                           </div>
                           <div class="form-group">
-                          <label>Monto a pagar:</label>
+                      
                           <div class="input-group">
-                              <div class="input-group-prepend">
-                              <span class="input-group-text">$</span>
-                              </div>
-                              <input
-                              type="text"
-                              class="form-control"
-                              id="monto"
-                              name="monto"    
-                              v-model="dinero"         
-                              value="aodhdu"
-                              />
-  
+                          
                              
                           </div>
                           </div>
@@ -194,7 +197,7 @@
   
   <script>
   import { min } from 'date-fns';
-  import {getDocs,collection,addDoc,doc} from 'firebase/firestore'
+  import {getDocs,collection,addDoc,doc, setDoc} from 'firebase/firestore'
   
   
       export default {
@@ -205,12 +208,13 @@
             Deporte: null,
             Horas_Reserva: null,
             ocupado:0,
+            repetido:0,
             modalReserva: false, 
             Nombre:null,dinero:null,codigo:null,numero:null,fechaV:null,
             activarModal: true,
             mostrarbtnResesrva:true,
-         
-  
+     
+
           states: [
             'Futbol', 'Tenis', 'Basquetball', 
             'Padel', 'Piscina', 'Voleibol',
@@ -400,7 +404,91 @@
                 
                }
             }
-        },
+          },
+
+
+
+
+       async guardarMatchmaking(){
+
+
+
+
+          const user = this.$store.state.auth.currentUser;
+          const querySnapshot = await getDocs(collection(this.$store.state.db,'matchmaking'))
+
+
+     
+          querySnapshot.forEach(doc =>{
+            if(doc.data().Fecha == this.$store.state.Fecha && 
+            doc.data().hora == this.$store.state.Horas_Reserva &&
+            doc.data().deporte == this.$store.state.Deporte ){
+              this.ocupado=1
+              console.log("se encontro")            
+              
+            }
+
+
+            if(doc.data().refUsuario == user.uid){
+                this.repetido =1
+            }
+
+
+
+          })
+
+          if(this.ocupado == 0){
+                      const docRef = await addDoc(collection(this.$store.state.db, "matchmaking",), {
+                      Fecha: this.$store.state.Fecha,
+                      deporte: this.Deporte,
+                      estado: "En espera",
+                      hora: this.$store.state.Horas_Reserva,
+                      refUsuario: user.uid,
+                      contrincante: "No encontrado"
+                    });
+                    swal.fire({
+                     icon:'success',
+                     title:'Guardado exitoso',
+                     text:'Su match a sido guardado y se encuentra en espera',
+                   })
+
+              }else{
+
+
+                  if(this.repetido == 1){
+                    swal.fire({
+                     icon:'error',
+                     title:'Matchmaking incorrecto',
+                     text:'No puede hacer matchmaking consigo mismo',
+                   })
+                  }else{
+                    const docRef = await addDoc(collection(this.$store.state.db, "matchmaking",), {
+                      Fecha: this.$store.state.Fecha,
+                      deporte: this.Deporte,
+                      estado: "Match",
+                      hora: this.$store.state.Horas_Reserva,
+                      refUsuario: user.uid,
+                      contrincante : "Encontrado"
+                    });
+                    swal.fire({
+                     icon:'success',
+                     title:'Matchmaking exitoso',
+                     text:'Su match a sido guardado junto a otra persona',
+                   })
+
+                  }
+
+              
+                   this.ocupado=0
+                   this.usuarioanterior = null
+                   this.repetido = 0
+              }
+  
+
+        }
+
+
+
 
        },
 
@@ -426,6 +514,10 @@
       .tex-seleccion-deporte{
           font-size: 20px;
       }
+
+
+
+
 
 
 

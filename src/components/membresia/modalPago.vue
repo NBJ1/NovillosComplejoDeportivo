@@ -68,18 +68,7 @@
                         <div class="form-group">
                         <label>Monto a pagar:</label>
                         <div class="input-group">
-                            <div class="input-group-prepend">
-                            <span class="input-group-text">$</span>
-                            </div>
-                            <input
-                            type="text"
-                            class="form-control"
-                            id="monto"
-                            name="monto"    
-                            v-model="dinero"         
-                            value="aodhdu"
-                            />
-
+                      
                            
                         </div>
                         </div>

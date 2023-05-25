@@ -12,7 +12,7 @@
 					<h5>Las mejores Canchas de Futbol</h5>
 					<p>Ven a vivir la experiencia en las mejores canchas de la región</p>
 					<br>
-					<p><a class="btn btn-carrucel1" href="#canchas">Ver Canchas</a></p>
+					<p><a class="btn btn-carrucel1">Ver Canchas</a></p>
 				</div>
 			</div>
 			<div class="carousel-item">
@@ -21,7 +21,7 @@
 					<h5>Mejor Calidad de Canchas</h5>
 					<p>Ven a vivir la experiencia en las mejores canchas de la región</p>
 					<br>
-					<p><a class="btn btn-carrucel2" href="#canchas">Ver Canchas</a></p>
+					<p><a class="btn btn-carrucel2">Ver Canchas</a></p>
 				</div>
 			</div>
 			<div class="carousel-item">
@@ -30,7 +30,7 @@
 					<h5>Mejores Implementaciones</h5>
 					<p>Ven a vivir la experiencia en las mejores canchas de la región</p>
 					<br>
-					<p><a class="btn btn-carrucel3" href="#canchas">Ver Canchas </a></p>
+					<p><a class="btn btn-carrucel3" >Ver Canchas </a></p>
 				</div>
 			</div>
 		</div><button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#carouselExampleIndicators" type="button"><span aria-hidden="true" class="carousel-control-prev-icon"></span> <span class="visually-hidden">Previous</span></button> <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#carouselExampleIndicators" type="button"><span aria-hidden="true" class="carousel-control-next-icon"></span> <span class="visually-hidden">Next</span></button>
